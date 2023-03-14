@@ -1,0 +1,27 @@
+<navbar></navbar>
+
+<div class="container  mb-5 pt-100">
+    <div class="grid grid-cols-12 mx-8">
+        <div class="col-span-3 bg-slate-50">
+            <div class="flex flex-col w-full category-list">
+                <a class="border border-b-slate-400 text-black hover:bg-slate-300  px-2 py-2 w-full" href="#">Kategori 1</a>
+                <a class="border border-b-slate-400 text-black hover:bg-slate-300  px-2 py-2 w-full" href="#">Kategori 2</a>
+                <a class="border border-b-slate-400 text-black hover:bg-slate-300  px-2 py-2 w-full" href="#">Kategori 3</a>
+                <a class="border border-b-slate-400 text-black hover:bg-slate-300  px-2 py-2 w-full" href="#">Kategori 4</a>
+                <a class="border border-b-slate-400 text-black hover:bg-slate-300  px-2 py-2 w-full" href="#">Kategori 5</a>
+            </div>
+        </div>
+        <div class="col-span-9 bg-gray-300 p-2">
+          <div class="grid grid-cols-12">
+            <ng-container *ngFor="let p of products">
+                <div class="col-span-4">
+                    <div class="card mb-3">
+                        <img src=".../assets/img/{{p.imageUrl}}" alt="{{p.name}}">
+                    </div>
+                </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      
+</div>
