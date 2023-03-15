@@ -13,8 +13,8 @@ export class CategoryRepository implements OnInit{
     }
     ngOnInit() {
     }
-    getCategory(id: number): any   {
-        return this.categories.find(i => i.id === id)
+    getCategory(id: number):Category | undefined{
+        return this.categories.find(i=>i.id === id);
     }
     getCategories(): Category[]{
         return this.categories
