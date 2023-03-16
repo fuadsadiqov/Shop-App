@@ -1,0 +1,53 @@
+<navbar></navbar>
+
+<div *ngIf="orderSent" class="pt-100 mx-2 text-center">
+    <h2 class="font-bold text-4xl mb-2 text-gray-800">Thanks for shopping</h2>
+    <p class="text-lg mb-3">Your order is being prepared</p>
+    <button routerLink="/shop" class="bg-green-600 text-white px-2 py-1 rounded-lg">Continue to shopping</button>
+</div>
+<div *ngIf="!orderSent" class="flex justify-center items-center h-[100vh] ">
+    <div class="container flex justify-center items-center px-2 py-4 shadow-2xl w-[600px] mb-5">
+        <div class="row w-full px-2">
+    
+            <form #form="ngForm" class="flex flex-col gap-3 justify-center" (ngSubmit)="submitOrder(form)">
+                <div class="flex flex-col">
+                    <label>Name</label>
+                    <input class="border rounded py-1 px-2 border-black shadow-md" type="text" name="name" #name="ngModel" [(ngModel)]="order.name" required>
+                    <span class="bg-red-500 text-white py-1 rounded px-2" *ngIf="submitted && name.invalid">
+                        Please write your name
+                    </span>
+                </div>
+                <div class="flex flex-col">
+                    <label>Address</label>
+                    <input class="border rounded py-1 px-2 border-black shadow-md" type="text" name="address" #address="ngModel" [(ngModel)]="order.address" required>
+                    <span class="bg-red-500 text-white py-1 rounded px-2" *ngIf="submitted && address.invalid">
+                        Please write your address
+                    </span>
+                </div>
+                <div class="flex flex-col"> 
+                    <label>City</label>
+                    <input class="border rounded py-1 px-2 border-black shadow-md" type="text" name="city" #city="ngModel" [(ngModel)]="order.city" required>
+                    <span class="bg-red-500 text-white py-1 rounded px-2" *ngIf="submitted && city.invalid">
+                        Please write your city
+                    </span>
+                </div>
+                <div class="flex flex-col">
+                    <label>Phone</label>
+                    <input class="border rounded py-1 px-2 border-black shadow-md" type="text" name="phone" #phone="ngModel" [(ngModel)]="order.phone" required>
+                    <span class="bg-red-500 text-white py-1 rounded px-2" *ngIf="submitted && phone.invalid">
+                        Please write your phone number
+                    </span>
+                </div>
+                <div class="flex flex-col">
+                    <label>Email</label>
+                    <input class="border rounded py-1 px-2 border-black shadow-md" type="text" name="email" #email="ngModel" [(ngModel)]="order.mail" required>
+                    <span class="bg-red-500 text-white py-1 rounded px-2" *ngIf="submitted && email.invalid">
+                        Please write your email
+                    </span>
+                </div>
+                <button type="submit" class="bg-blue-500 rounded text-white px-2 py-1">Complete order</button>
+                <button type="submit" routerLink="/shop" class="bg-green-500 rounded text-white ml-2 px-2 py-1">Continue to shopping</button>
+            </form>
+        </div>
+    </div>
+</div>

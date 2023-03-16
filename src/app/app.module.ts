@@ -1,8 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router'
 
 import { AppComponent } from './app.component';
 import { ShopModule } from './shop/shop.module';
+import { AdminModule } from './admin/admin.module';
+import { ShopComponent } from './shop/shop.component';
+import { CartDetailComponent } from './shop/cart-detail/cart-detail.component';
+import { CheckoutComponent } from './shop/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -10,7 +15,14 @@ import { ShopModule } from './shop/shop.module';
   ],
   imports: [
     BrowserModule,
-    ShopModule
+    ShopModule,
+    RouterModule.forRoot([
+      {path: 'shop', component: ShopComponent},
+      {path: 'cart', component: CartDetailComponent},
+      {path: 'checkout', component: CheckoutComponent},
+      {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
+      {path: '**', redirectTo: "/shop"},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

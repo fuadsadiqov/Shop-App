@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 import { Cart } from "../model/cart.model";
 import { Category } from "../model/category.model";
 import { CategoryRepository } from "../model/category.repository";
@@ -7,23 +8,23 @@ import { ProductRepository } from "../model/product.repository";
 
 @Component({
     selector: 'shop',
-    templateUrl: 'shop.component.html',
-    styles: [`
-        .pt-100 {padding-top: 100px}
-    `]
+    templateUrl: 'shop.component.html'
 })
 export class ShopComponent{
     public selectedCategory: any
     public productsPerPage = 3
     public selectedPage = 1
+    public selectedProducts: Product[] = []
 
     constructor(
         private productRepository: ProductRepository,
-        private categoryRepository: CategoryRepository,
-        private cart: Cart
     ){} 
     get products(): Product[]{
         let index = (this.selectedPage - 1) * this.productsPerPage
+        
+        this.selectedProducts = this.productRepository
+                                .getProducts(this.selectedCategory)
+
         return this.productRepository
                 .getProducts(this.selectedCategory)
                 .slice(index, index + this.productsPerPage)
@@ -37,14 +38,13 @@ export class ShopComponent{
     changePage(page: number){
         this.selectedPage = page
     }
-    get categories(): Category[]{
-        return this.categoryRepository.getCategories()
+   
+   
+    changePageSize(size: any){
+        this.productsPerPage = size.value
+        this.changePage(1);
     }
-    changeCategory(newCategory?: Category){
-        this.selectedCategory = newCategory     
-        console.log(this.selectedCategory);
-    }
-    addProductToCart(product: Product){
-        this.cart.addItem(product)
+    getCategory(category: Category){
+        this.selectedCategory = category
     }
 }

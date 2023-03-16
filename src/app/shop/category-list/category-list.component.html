@@ -1,0 +1,6 @@
+<div class="bg-slate-50">
+    <div class="flex flex-col w-full category-list">
+        <button (click)="changeCategory()" class="border border-b-slate-400 text-black  px-2 py-2 w-full">All categories</button>
+        <button *ngFor="let c of categories" (click)="changeCategory(c)" [class.bg-slate-300]="c===selectedCategory" class="border border-b-slate-400 text-black  px-2 py-2 w-full" >{{c.name}}</button>
+    </div>
+</div>

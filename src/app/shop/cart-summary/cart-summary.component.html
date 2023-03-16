@@ -1,1 +1,7 @@
-<p>cart-summary works!</p>
+<div class="ml-8 bg-yellow-300 p-2 rounded-md mb-3 w-[250px]">
+    <span *ngIf="cart.itemCount > 0">
+        There are {{cart.itemCount}} products in cart <br>
+        Total: ${{cart.total}}
+    </span>
+    <span *ngIf="cart.itemCount === 0">There is not any product in cart</span>
+</div>

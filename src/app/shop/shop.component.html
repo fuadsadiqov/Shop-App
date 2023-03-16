@@ -1,51 +1,43 @@
 <navbar></navbar>
 <div class="container  mb-5 pt-100">
-    <cart-summary></cart-summary>  
+    <div class="grid grid-cols-12">
+        <cart-summary class="lg:col-span-3 col-span-12 md:col-span-12"></cart-summary>  
+        <div class="bg lg:col-span-9 col-span-12 md:col-span-12 h-[60px] flex justify-between items-center px-3 text-white mx-3 rounded-lg bg-yellow-400 opacity-80 ">
+            <div>
+                <span>There are currently {{selectedProducts.length}} product</span>
+                <span *ngIf="selectedProducts.length > 1">s</span> <span class="ml-1"> avilable</span>
+            </div> 
+            <div>
+                <select class="text-black" name=""
+                    [value]="productsPerPage"
+                    (change)="changePageSize($event.target)"
+                >
+                    <option value="2">2 products</option>
+                    <option value="3">3 products</option>
+                    <option value="4">4 products</option>
+                    <option value="6">6 products</option>
+                    <option value="8">8 products</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="grid grid-cols-12 mx-8">
-        <div class="col-span-3 bg-slate-50">
-
-            <div class="flex flex-col w-full category-list">
-                <a (click)="changeCategory()" class="border border-b-slate-400 text-black  px-2 py-2 w-full" href="#">All categories</a>
-                <a *ngFor="let c of categories" (click)="changeCategory(c)" [class.bg-slate-300]="c===selectedCategory" class="border border-b-slate-400 text-black  px-2 py-2 w-full" href="#">{{c.name}}</a>
-            </div>
-        </div>
-        <div class="col-span-9 bg-gray-200 p-2">
-            <div class="grid grid-cols-12 gap-x-4">
-              <ng-container *ngFor="let p of products">
-                <div class="col-span-4">
-                    <div class="card border rounded-xl  bg-white border-black mb-5">
-                        <img class="rounded-xl w-full h-52 object-cover" src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg" alt="{{p.name}}">
-                        <div class="card-body px-3">
-                            <h4 class="card-title pt-3">
-                                <a class="text-lg font-semibold" href="">{{p.name}}</a>
-                            </h4>
-                            <small class="text-red-900 text-lg">
-                                ${{p.price}}
-                            </small>
-                        </div>
-                        <div class="card-footer border-t border-black  py-4 px-3 text-center">
-                            <button 
-                                class="border border-blue-900 px-2 py-1 mx-1 bg-blue-600 text-white rounded-lg ">Details</button>
-                            <button 
-                                (click)="addProductToCart(p)"
-                                class="border border-green-800 px-2 py-1 mx-1 bg-green-700 text-white rounded-lg ">Add to card-title</button>
-                        </div>
-                    </div>
+       <category-list (category)="getCategory($event)" class="lg:col-span-3 col-span-12 md:col-span-12"></category-list>
+        <div class="lg:col-span-9 col-span-12 md:col-span-12 bg-gray-200 p-2">
+            
+              <product-list [products]="products"></product-list>
+              <div class="flex justify-center">
+                <div class="flex gap-3 text-lg">
+                    <button 
+                        *ngFor="let page of pageNumbers"
+                        (click)="changePage(page)" 
+                        class="border border-black rounded-2xl px-3 hover:bg-blue-700  hover:text-white"
+                        [class.bg-emerald-600]="page===selectedPage">{{page}}</button>
                 </div>
-            </ng-container>
+                <div class="bg-red-500 text-white w-full py-2 px-2 mb-3 flex flex-col" *ngIf="products.length === 0">
+                    <p>This page have not any product</p>
+                </div>
+              </div>
         </div>
-        <div class="bg-red-500 text-white w-full py-2 px-2 mb-3 flex flex-col" *ngIf="products.length === 0">
-            <p>This page have not any product</p>
-        </div>
-          <div class="flex justify-center">
-            <div class="flex gap-3 text-lg">
-                <button 
-                    *ngFor="let page of pageNumbers"
-                    (click)="changePage(page)" 
-                    class="border border-black rounded-2xl px-3 hover:bg-blue-700  hover:text-white"
-                    [class.bg-emerald-600]="page===selectedPage">{{page}}</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
 </div>

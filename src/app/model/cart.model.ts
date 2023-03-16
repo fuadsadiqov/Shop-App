@@ -26,10 +26,11 @@ export class Cart{
             this.total += ((item.quantity) * item.product.price)
         })
     }
-    updateQuantity(product: Product, quantity: number){
+    updateQuantity(product: Product, quantity: any){
+        let quantityValue = quantity.value
         let item = this.items.find(i => i.product.id === product.id)
         if(item != undefined){
-            item.quantity = quantity
+            item.quantity = quantityValue
         }
         this.calculate()
     }
@@ -46,7 +47,7 @@ export class Cart{
 }
 class CartItem{
     constructor(
-        public product: Product,
-        public quantity: number
+        public product: Product | any,
+        public quantity: number | any
     ){}
 }

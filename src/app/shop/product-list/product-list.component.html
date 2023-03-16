@@ -1,0 +1,44 @@
+<div *ngIf="selectedProduct" class="border border-black rounded bg-white grid grid-cols-12 p-3 mb-4 m-0">
+    <div class="col-span-2">
+        <img class="w-full pr-4" src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg" alt="{{selectedProduct.name}}">
+    </div>
+    <div class="col-span-10">
+        <div class="card-title">
+            <h5 class="text-xl font-medium">
+                {{selectedProduct.name}}
+            </h5>
+        </div>
+        <div class="card-text">
+            <b>${{selectedProduct.price}}</b>
+            <p>{{selectedProduct.description}}</p>
+        </div>
+        <button class="bg-red-700 text-white px-2 py-1 rounded-lg" (click)="hideDetails()">Cancel details</button>
+        <button class="bg-transparent border-green-800 text-green-600 border ml-3 hover:bg-green-700 hover:text-white border-green-700 px-2 py-1 rounded-lg" (click)="addProductToCart(selectedProduct)">Add to cart</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="grid grid-cols-12 gap-x-4">
+    <div *ngFor="let p of products" class="col-span-4">
+        <div class="card border rounded-xl  bg-white border-black mb-5">
+            <img class="rounded-xl w-full h-52 object-cover" src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg" alt="{{p.name}}">
+            <div class="card-body px-3">
+                <h4 class="card-title pt-3">
+                    <a class="text-lg font-semibold" href="">{{p.name}}</a>
+                </h4>
+                <small class="text-red-900 text-lg">
+                    ${{p.price}}
+                </small>
+            </div>
+            <div class="card-footer border-t border-black  py-4 px-3 text-center">
+                <button 
+                    (click)="displayDetails(p)"
+                    class="border border-blue-900 text-blue-900 hover:bg-blue-800 hover:text-white px-2 py-1 mx-1 bg-transparent rounded-lg ">Details</button>
+                <button 
+                    (click)="addProductToCart(p)"
+                    class="border border-green-800 text-green-800 hover:bg-green-800 hover:text-white px-2 py-1 mx-1 bg-transparent rounded-lg ">Add to card-title</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
