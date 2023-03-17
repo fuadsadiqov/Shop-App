@@ -1,0 +1,23 @@
+<table class="w-full">
+    <thead class="bg-slate-700 text-gray-200 font-sans py-3 px-3">
+        <tr class="text-center">
+            <th></th>
+            <th>Name</th>
+            <th>Price</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border text-center hover:bg-slate-700 hover:text-white border-slate-700 px-3 py-2" *ngFor="let product of getProductsList()">
+            <td>
+                <img width="80" src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg" alt="">
+            </td>
+            <td>{{product.name}}</td>
+            <td>${{product.price}}</td>
+            <td>
+                <button routerLink="['/admin/main/products/edit',p.id]" class="bg-green-500 text-white px-2 py-1 mr-2 rounded-lg">Edit</button>
+                <button (click)="deleteProduct(product)" class="bg-red-600 text-white px-2 py-1 rounded-lg">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -10,7 +10,7 @@ module.exports = function(req, res, next){
             let token = jwt.sign({data: username, expiresIn: '1h'}, app_secret)
             res.json({success: true, token: token})
         }
-        else{
+        else{   
             res.json({success: false})
         }
         res.end()
@@ -18,7 +18,7 @@ module.exports = function(req, res, next){
     }
     else{
         if((req.url.startsWith("/products") || req.url.startsWith("/categories")) && (req.method != 'GET')){
-            let token = req.headers['authorization']
+            let token = req.headers['authorization'] 
 
             if(token != null && token.startsWith('Bearer<')){
                 token = token.substring(7, token.length)
