@@ -15,7 +15,7 @@ export class ProductRepository implements OnInit{
     ngOnInit(): void {
     }
     getProduct(id: number):Product | undefined{
-        return this.products.find(i=>i.id === id);
+        return this.products.find(i=>i.id == id);
     }
     getProducts(category: Category | null): Product[]{
         if(category){
@@ -24,5 +24,21 @@ export class ProductRepository implements OnInit{
         else{
             return this.products
         }
+    }
+    saveProduct(product: Product){
+        if(product.id == undefined || product.id == null || product.id == 0){
+            this.restService.addProduct(product)
+                .subscribe(p => this.products.push(p))
+        }
+        else{
+            this.restService.updateProduct(product)
+            .subscribe(p => {
+                this.products.splice(this.products.findIndex(pr => pr.id == product.id), 1, product)
+            })
+        }
+    }
+    deleteProduct(product: Product){
+        this.restService.deleteProduct(product)
+            .subscribe(p => this.products.splice(this.products.findIndex(p => p.id === product.id)?.valueOf(), 1))
     }
 }

@@ -14,9 +14,25 @@ export class CategoryRepository implements OnInit{
     ngOnInit() {
     }
     getCategory(id: number):Category | undefined{
-        return this.categories.find(i=>i.id === id);
+        return this.categories.find(i=>i.id == id);
     }
     getCategories(): Category[]{
         return this.categories
+    }
+    saveCategory(category: Category){
+        if(category.id == undefined || category.id == null || category.id == 0){
+            this.restService.addCategory(category)
+                .subscribe(p => this.categories.push(p))
+        }
+        else{
+            this.restService.updateCategory(category)
+            .subscribe(p => {
+                this.categories.splice(this.categories.findIndex(pr => pr.id == category.id), 1, category)
+            })
+        }
+    }
+    deleteCategory(category: Category){
+        this.restService.deleteCategory(category)
+            .subscribe(p => this.categories.splice(this.categories.findIndex(p => p.id === category.id)?.valueOf(), 1))
     }
 }

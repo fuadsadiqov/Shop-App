@@ -1,1 +1,16 @@
-<p>category-form works!</p>
+<div class="ml-3 w-[90%]">
+    <h5>
+        {{editing ? "Edit" : "Create"}} Category
+    </h5>
+    
+    <form #form="ngForm" (ngSubmit)="save(form)">
+        <div class="mb-3">
+            <label>
+                <span>Category name</span>
+                <input type="text" class="rounded-lg w-full border border-black px-2 py-1" name="name" [(ngModel)]="category.name">
+            </label>
+        </div>
+        <button class="bg-green-800 rounded-lg my-2 py-1 px-2 text-white mr-2" type="submit">{{editing ? "Edit" : "Create"}} Category</button>
+        <button class="bg-red-600 text-white rounded-lg my-2 py-1 px-2" routerLink="/admin/main/categories">Cancel</button>
+    </form>
+</div>

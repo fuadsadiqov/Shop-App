@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
-import { ProductListComponent } from './products/product-list/product-list.component';
 import { AdminComponent } from './admin.component';
 import { AdminModule } from './admin.module';
 import { AuthGuard } from './auth.guard';
@@ -9,6 +8,7 @@ import { CategoryFormComponent } from './categories/category-form/category-form.
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { OrderListComponent } from './orders/order-list/order-list.component';
 import { ProductFormComponent } from './products/product-form/product-form.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
 
 const routes: Routes = [
   {path: 'auth', component: AuthComponent},
@@ -17,7 +17,7 @@ const routes: Routes = [
     {path: 'products/:mode/:id', component: ProductFormComponent},
     {path: 'products/:mode', component: ProductFormComponent},
     {path: 'products', component: ProductListComponent},
-    {path: 'categories/:mode/:id', component: CategoryListComponent},
+    {path: 'categories/:mode/:id', component: CategoryFormComponent},
     {path: 'categories/:mode', component: CategoryFormComponent},
     {path: 'categories', component: CategoryListComponent},
     {path: 'orders', component: OrderListComponent},

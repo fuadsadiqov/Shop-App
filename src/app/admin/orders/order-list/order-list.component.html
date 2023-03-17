@@ -1,1 +1,28 @@
-<p>order-list works!</p>
+<table class="w-full">
+    <thead class="bg-slate-700 text-gray-200 font-sans py-3 px-3">
+        <tr class="text-center">
+            <th>Name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Phone</th>
+            <th>Mail</th>
+            <th>Product</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border text-center py-2 hover:bg-slate-700 hover:text-white border-slate-700 px-3 py-2" *ngFor="let product of getOrdersList()">
+            <td>{{product.name}}</td>
+            <td>{{product.address}}</td>
+            <td>{{product.city}}</td>
+            <td>{{product.phone}}</td>
+            <td>{{product.mail}}</td>
+            <td>
+                <ul>
+                    <li>{{product.cart.items[0].product.name}}</li>
+                    <li>{{product.cart.items[0].product.price}}</li>
+                    <li>{{product.cart.items[0].product.description}}</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
