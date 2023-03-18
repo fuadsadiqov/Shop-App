@@ -1,9 +1,9 @@
 <navbar></navbar>
 
-<div class="w-full pt-100 grid grid-cols-12 bg-gray-300 h-vh py-3 px-2">
-    <div class="col-span-8">
+<div class="w-full pt-100 grid grid-cols-12 py-3 pt-100 px-2">
+    <div class="col-span-12 md:col-span-8">
         <ng-container class="relative overflow-x-auto" *ngIf="cart.itemCount > 0">
-            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-40">
+            <table class="w-full overflow-x-scroll text-sm text-left text-gray-500 dark:text-gray-40">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th class="px-6 py-3"></th>
@@ -36,7 +36,7 @@
                             ${{item?.quantity * item?.product?.price }}
                         </td>
                         <td>
-                            <button (click)="cart.removeItem(item.product.id)" class="bg-red-600 rounded-lg text-white px-3 py-1">Delete</button> 
+                            <button (click)="cart.removeItem(item.product.id)" class="bg-red-600 rounded-lg md:px-3 py-1 text-white px-1 py-1">Delete</button> 
                         </td>
                     </tr>
                 </tbody>
@@ -44,25 +44,25 @@
         </ng-container>
         <ng-container *ngIf="cart.itemCount === 0">
             There is not any product in basket <br>
-            <button routerLink="/shop" class="bg-yellow-600 py-1 px-2 rounded-lg m-2" >Click for continue shopping</button>
+            <button routerLink="/shop" class="border border-yellow-600 text-yellow-400 hover:bg-yellow-400 hover:text-white py-1 px-2 rounded-lg m-2" >Click for continue shopping</button>
         </ng-container>
     </div>
-    <div class="col-span-4 px-3 py-6 bg-zinc-500 ">
+    <div class="md:col-span-4 col-span-12 px-3 py-6 ">
         <ng-container *ngIf="cart.itemCount>0">
             <div class="text-left ">
-                <h4 class="text-lg text-white font-bold">History of shopping</h4>
+                <h4 class="text-lg  font-bold">History of shopping</h4>
             </div>
             <table>
-                <tbody class="text-white">
+                <tbody>
                     <tr>
                         <td>Total</td>
                         <td>${{cart.total}}</td>
                     </tr>
                 </tbody>
             </table>
-            <div>
+            <div class="flex gap-2 flex-col">
                 <button class="bg-blue-400 text-white px-2 py-1 mx-2 rounded-lg" routerLink="/shop">To continue shopping</button>
-                <button class="bg-blue-400 text-white px-2 py-1 mx-2 rounded-lg" routerLink="/checkout">Complete the shopping</button>
+                <button class="bg-green-400 text-white px-2 py-1 mx-2 rounded-lg" routerLink="/checkout">Complete the shopping</button>
             </div>
         </ng-container>
     </div>
