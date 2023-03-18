@@ -11,16 +11,16 @@
     </thead>
     <tbody>
         <tr class="border text-center py-2 hover:bg-slate-700 hover:text-white border-slate-700 px-3 py-2" *ngFor="let product of getOrdersList()">
-            <td>{{product.name}}</td>
-            <td>{{product.address}}</td>
-            <td>{{product.city}}</td>
-            <td>{{product.phone}}</td>
-            <td>{{product.mail}}</td>
-            <td>
-                <ul>
-                    <li>{{product.cart.items[0].product.name}}</li>
-                    <li>{{product.cart.items[0].product.price}}</li>
-                    <li>{{product.cart.items[0].product.description}}</li>
+            <td class="border border-r-black">{{product.name}}</td>
+            <td class="border border-r-black">{{product.address}}</td>
+            <td class="border border-r-black">{{product.city}}</td>
+            <td class="border border-r-black">{{product.phone}}</td>
+            <td class="border border-r-black">{{product.mail}}</td>
+            <td class="flex">
+                <ul class="border border-r-black p-1" *ngFor="let item of product.cart.items">
+                    <li>Name: {{item.product.name}}</li>
+                    <li>Price: {{item.product.price}}</li>
+                    <li>description: {{item.product.description}}</li>
                 </ul>
             </td>
         </tr>

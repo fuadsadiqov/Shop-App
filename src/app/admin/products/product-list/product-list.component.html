@@ -10,7 +10,7 @@
     <tbody>
         <tr class="border text-center hover:bg-slate-700 hover:text-white border-slate-700 px-3 py-2" *ngFor="let product of getProductsList()">
             <td>
-                <img width="80" src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg" alt="">
+                <img width="80" src="{{product.imageUrl}}" alt="">
             </td>
             <td>{{product.name}}</td>
             <td>${{product.price}}</td>

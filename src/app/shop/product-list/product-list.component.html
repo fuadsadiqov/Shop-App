@@ -1,6 +1,6 @@
 <div *ngIf="selectedProduct" class="border border-black rounded bg-white grid grid-cols-12 p-3 mb-4 m-0">
     <div class="col-span-2">
-        <img class="w-full pr-4" src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg" alt="{{selectedProduct.name}}">
+        <img class="w-full pr-4" src="{{selectedProduct.imageUrl}}" alt="{{selectedProduct.name}}">
     </div>
     <div class="col-span-10">
         <div class="card-title">
@@ -21,7 +21,7 @@
     <div class="grid grid-cols-12 gap-x-4">
     <div *ngFor="let p of products" class="col-span-4">
         <div class="card border rounded-xl  bg-white border-black mb-5">
-            <img class="rounded-xl w-full h-52 object-cover" src="https://www.apple.com/newsroom/images/product/iphone/geo/apple_iphone-12_new-design_geo_10132020.jpg.news_app_ed.jpg" alt="{{p.name}}">
+            <img class="rounded-xl w-full h-52 object-contain py-1" src="{{p.imageUrl}}" alt="{{p.name}}">
             <div class="card-body px-3">
                 <h4 class="card-title pt-3">
                     <a class="text-lg font-semibold" href="">{{p.name}}</a>
