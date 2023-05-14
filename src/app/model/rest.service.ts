@@ -8,7 +8,8 @@ import { Product } from './product.model';
 @Injectable()
 export class RestService {
 
-  baseUrl: string = "https://shop-app-qb22.onrender.com/"
+  baseUrl: string = "http://localhost:3500/"
+  // baseUrl: string = "https://shop-app-qb22.onrender.com/"
   token: string | undefined
 
   constructor(private http: HttpClient) { }
