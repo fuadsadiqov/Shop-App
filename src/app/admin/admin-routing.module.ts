@@ -12,8 +12,10 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 
 const routes: Routes = [
   {path: 'auth', component: AuthComponent},
-  {path: 'main', component: AdminComponent, canActivate: [AuthGuard]
-  , children: [
+  {path: 'main', component: AdminComponent,
+   canActivate: [
+    // AuthGuard
+  ], children: [
     {path: 'products/:mode/:id', component: ProductFormComponent},
     {path: 'products/:mode', component: ProductFormComponent},
     {path: 'products', component: ProductListComponent},
