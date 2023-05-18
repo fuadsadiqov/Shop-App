@@ -57,19 +57,19 @@
                         <button routerLink="/admin/main">Admin</button>
                     </li>
                 </ul>
-            <ul class="flex navbar-right items-center">
-                <li (click)="toggle()" [class.activeIcon]="activeNavbar" class="md:hidden block hamburger-icon">
-                    <p></p>
-                    <p></p>
-                    <p></p>
-                </li>
-                <li class="opacity-70 md:block hidden hover:opacity-100">
-                    <button class="flex gap-1 cart-icon" routerLink="/cart">
-                        <span>{{cart.total | currency: '₼'}}</span>
-                        <img width="25" src="../../../assets/cart.svg" alt="">
-                    </button>
-                </li>
-            </ul>
+                <ul class="flex navbar-right items-center">
+                    <li (click)="toggle()" [class.activeIcon]="activeNavbar" class="md:hidden block hamburger-icon">
+                        <p></p>
+                        <p></p>
+                        <p></p>
+                    </li>
+                    <li [class.activeCart]="activeNavbar" class="opacity-70 cart-icon hover:opacity-100">
+                        <button class="flex gap-1" routerLink="/cart">
+                            <span>{{cart.total | currency: '₼'}}</span>
+                            <img width="25" src="../../../assets/cart.svg" alt="">
+                        </button>
+                    </li>
+                </ul>
         </div>
     </div>    
 </div>
