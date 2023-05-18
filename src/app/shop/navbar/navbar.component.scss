@@ -1,0 +1,20 @@
+.navbar{
+    background-color: #1A5221;
+    .container{
+        .header-top{
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .header-bottom{
+            padding-top: 10px;
+        }
+        .tel{
+            /* color: var(--white); */
+            color: #FFFFFF;
+        }
+        .tel:hover{
+            color: #91B40D;
+            /* color: var(--green); */
+        }
+    }
+}
