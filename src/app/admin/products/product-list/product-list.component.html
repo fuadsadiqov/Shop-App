@@ -13,7 +13,7 @@
                 <img width="80" src="{{product.imageUrl}}" alt="">
             </td>
             <td>{{product.name}}</td>
-            <td>${{product.price}}</td>
+            <td>₼{{product.price}}</td>
             <td>
                 <button [routerLink]="['/admin/main/products/edit', product.id]" class="bg-green-500 text-white px-2 py-1 mr-2 rounded-lg">Edit</button>
                 <button (click)="deleteProduct(product)" class="bg-red-600 text-white px-2 py-1 rounded-lg">Delete</button>

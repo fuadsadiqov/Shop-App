@@ -1,5 +1,6 @@
 .navbar{
     background-color: #1A5221;
+    border-bottom: 4px solid #FFBF00;
     .container{
         .header-top{
             border-bottom: 1px solid #ccc;
@@ -7,14 +8,116 @@
         }
         .header-bottom{
             padding-top: 10px;
+            .navbar-bg{
+                transform: translateX(-200%);
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                background-color: #FFFFFF;
+                width: 70%;
+                height: 100vh;
+                transition: 0.5s all;
+                background-image: url(../../../assets/navbar-bg.svg);
+                background-size: 80% auto;
+                background-repeat: no-repeat;
+                background-position: center;
+                box-shadow: 2px 2px 2px 250px rgba($color: #000000, $alpha: 0.4);
+                &.active{
+                    transform: translateX(0);
+                }
+                .mobile-navbar{
+                    .top{
+                        border-bottom: 3px solid #91B40D;
+                        .mobile-logo{
+                            padding: 20px;
+                        }
+                        .close-icon{
+                            padding: 36px 20px 20px 20px;
+                            li{
+                                width: 30px;
+                                height: 2px;
+                                margin-bottom: 5px;
+                                background-color: #91B40D;
+                                border-radius: 4px;
+                                &:first-child{
+                                    transform: rotate(45deg) translate(5px, 4px);
+                                }
+                                &:last-child{
+                                    transform: rotate(-45deg);
+                                }
+                            }
+                        }
+                    }
+                }
+                @media (min-width: 768px) {
+                    .navbar-bg{
+                        display: none;
+                    }
+                    &.active{
+                        display: none;
+                    }
+                }
+            }
+            ul{
+                li{
+                   &:hover{
+                        color: #FFBF00;
+                   } 
+                }
+            }
+            @media (max-width: 768px){
+                .navbar-list{
+                    transform: translateX(-400%);
+                    position: absolute;
+                    left: 25%;
+                    top: 220px;
+                    z-index: 10;
+                    flex-direction: column;
+                    transition: 0.5s all;
+                    color: #1A5221;
+                    font-size: 20px;
+                    &.activeList{
+                        transform: translateX(0);
+                    }
+                }
+            }
+            .navbar-right{
+                    .hamburger-icon{
+                        cursor: pointer;
+                        p{
+                            display: block;
+                            margin-bottom: 5px;
+                            width: 25px;
+                            height: 2.2px;
+                            background-color: #91B40D;
+                            border-radius: 3px;
+                        }
+                        &.activeIcon{
+                            p:first-child{
+                                transform: rotate(45deg) translate(5px, 4px);
+                            }
+                            p:last-child{
+                                transform: rotate(-45deg);
+                            }
+                            p:nth-child(2){
+                                display: none;
+                            }
+                        }
+                    }
+                }
+            }
+            .tel{
+                color: #FFFFFF;
+            }
+            .tel:hover{
+                color: #FFBF00;
         }
-        .tel{
-            /* color: var(--white); */
+    }
+    .cart-icon{
+        span{
+            font-size: 20px;
             color: #FFFFFF;
-        }
-        .tel:hover{
-            color: #91B40D;
-            /* color: var(--green); */
         }
     }
 }

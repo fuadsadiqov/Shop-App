@@ -31,8 +31,19 @@
             </div>
         </div>
         <div class="header-bottom flex justify-between">
-                <div class="navbar-logo text-lg font-semibold text-white"><a routerLink="/products">Shop App</a></div>
-                <ul class="flex gap-3 items-center text-white text-lg font-semibold">
+            <div [class.active]="activeNavbar" class="navbar-bg">
+                <div class="mobile-navbar">
+                    <div class="top flex justify-between">
+                        <img src="../../../assets/logo.svg" class="mobile-logo">
+                        <ul (click)="toggle()" class="close-icon">
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+                <div class="navbar-logo text-lg font-semibold text-white"><a routerLink="/products"><img src="../../../assets/logo.svg" alt=""></a></div>
+                <ul [class.activeList]="activeNavbar" class="flex gap-3 navbar-list items-center text-white text-lg font-semibold">
                     <li class="opacity-70 hover:opacity-100 ">
                         <a routerLink="/home">Home</a>
                     </li>
@@ -46,9 +57,15 @@
                         <button routerLink="/admin/main">Admin</button>
                     </li>
                 </ul>
-            <ul class="flex items-center">
-                <li class="opacity-70 hover:opacity-100">
-                    <button routerLink="/cart">
+            <ul class="flex navbar-right items-center">
+                <li (click)="toggle()" [class.activeIcon]="activeNavbar" class="md:hidden block hamburger-icon">
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </li>
+                <li class="opacity-70 md:block hidden hover:opacity-100">
+                    <button class="flex gap-1 cart-icon" routerLink="/cart">
+                        <span>{{cart.total | currency: '₼'}}</span>
                         <img width="25" src="../../../assets/cart.svg" alt="">
                     </button>
                 </li>

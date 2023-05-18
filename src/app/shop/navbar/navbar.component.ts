@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Cart } from 'src/app/model/cart.model';
 
 @Component({
   selector: 'navbar',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent {
+  activeNavbar: boolean = false
 
+  constructor(public cart: Cart){}
+  
+  toggle(){
+    this.activeNavbar = !this.activeNavbar
+  }
 }

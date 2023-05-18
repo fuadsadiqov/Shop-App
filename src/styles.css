@@ -13,3 +13,6 @@
     font-family: 'Cormorant Garamond', serif;
     transition: 0.1s all;
 }
+::selection{
+    background-color: #FFBF00;
+}
