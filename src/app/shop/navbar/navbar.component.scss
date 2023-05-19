@@ -66,6 +66,23 @@
                    } 
                 }
             }
+            .navbar-list{
+                li{
+                    position: relative;
+                }
+                li::after{
+                    content: "";
+                    display: block;
+                    margin: auto;
+                    width: 0%;
+                    height: 0.7px;
+                    background-color: #FFBF00;
+                    transition: 0.4s all;
+                }
+                li:hover::after{
+                    width: 100%;
+                }
+            }
             @media (max-width: 768px){
                 .navbar-list{
                     transform: translateX(-400%);
@@ -124,7 +141,8 @@
     @media (max-width: 768px) {
         .cart-icon{
             transform: translateX(-150vw);
-            position: absolute;            
+            position: absolute;
+            transition: 0.5s all;            
             &.activeCart{
                 transform: translate(-62vw, 47vh);
                 z-index: 10;
