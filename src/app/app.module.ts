@@ -9,6 +9,7 @@ import { ShopComponent } from './shop/shop.component';
 import { CartDetailComponent } from './shop/cart-detail/cart-detail.component';
 import { CheckoutComponent } from './shop/checkout/checkout.component';
 import { HomeComponent } from './shop/home/home.component';
+import { AboutComponent } from './shop/about/about.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { HomeComponent } from './shop/home/home.component';
     ShopModule,
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
+      {path: 'about', component: AboutComponent},
       {path: 'shop', component: ShopComponent},
       {path: 'cart', component: CartDetailComponent},
       {path: 'checkout', component: CheckoutComponent},

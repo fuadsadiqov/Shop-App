@@ -1,0 +1,51 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 0 60px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .modal-content{
+    background-color: #FFF;
+    max-width: 600px;
+    padding: 10px 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  @media (max-width: 768px){
+    .modal-content{
+        grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  .activeModal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .detail-btn{
+    display: none;
+    transform: translate(0, 0);
+    transition: 0.4s all;
+    background-color: #FFBF00;
+    height: 60px;
+  }
+  .card-body p{
+    color: #91B40D;
+  }
+  .card:hover .detail-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.4s all;
+  }

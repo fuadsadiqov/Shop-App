@@ -1,43 +1,38 @@
-<div *ngIf="selectedProduct" class="border   border-black rounded bg-white grid grid-cols-12 p-3 mb-4 m-0">
-    <div class="col-span-2">
-        <img class="w-full pr-4" src="{{selectedProduct.imageUrl}}" alt="{{selectedProduct.name}}">
-    </div>
-    <div class="col-span-10">
-        <div class="card-title">
-            <h5 class="text-xl font-medium">
-                {{selectedProduct.name}}
-            </h5>
+<div class="modal" *ngIf="selectedProduct" [class.activeModal]="selectedProduct">
+    <div class="modal-content relative">
+        <div class="close-icon font-sans text-lg cursor-pointer absolute right-5 top-2" (click)="hideDetails()">X</div>
+        <div class="modal-img object-cover p-3">
+            <img src="{{selectedProduct.imageUrl}}" class="w-full" alt="">
         </div>
-        <div class="card-text">
-            <b>${{selectedProduct.price}}</b>
+        <div class="modal-info">
+            <h2 class="text-2xl font-bold">{{selectedProduct.name}}</h2>
+            <p class="text-gray-500">{{selectedProduct.category}}</p>
             <p>{{selectedProduct.description}}</p>
+            <p class="text-xl mt-1 mb-2">{{selectedProduct.price | currency: '₼'}}</p>
+            <button class="bg-red-500 text-white px-2 py-1 mr-3" (click)="hideDetails()">Cancel</button>        
+            <button class="bg-green-500 text-white px-2 py-1" (click)="addProductToCart(selectedProduct)">Add to Cart</button>        
         </div>
-        <button class="bg-red-700 text-white px-2 py-1 rounded-lg" (click)="hideDetails()">Cancel details</button>
-        <button class="bg-transparent border-green-800 text-green-600 border ml-3 hover:bg-green-700 hover:text-white border-green-700 px-2 py-1 rounded-lg" (click)="addProductToCart(selectedProduct)">Add to cart</button>
     </div>
 </div>
-
 <div class="row">
     <div class="grid grid-cols-12 gap-x-4">
     <div *ngFor="let p of products" class="lg:col-span-4 md:col-span-6 col-span-12 ">
-        <div class="card border rounded-xl  bg-white border-black mb-5">
+        <div class="card shadow-xl rounded-lg relative bg-white pb-3 mb-5">
             <img class="rounded-xl w-full h-52 object-contain py-1" src="{{p.imageUrl}}" alt="{{p.name}}">
             <div class="card-body px-3">
-                <h4 class="card-title pt-3">
-                    <a class="text-lg font-semibold" href="">{{p.name}}</a>
+                <h4 class="card-title text-center pt-3">
+                    <a class="text-xl font-semibold">{{p.name}}</a>
                 </h4>
-                <small class="text-red-900 text-lg">
-                    ${{p.price}}
-                </small>
-            </div>
-            <div class="card-footer border-t border-black  py-4 px-3 text-center">
+                <p class="text-center text-xl">
+                    {{p.price | currency: '₼'}}
+                </p>
                 <button 
-                    (click)="displayDetails(p)"
-                    class="border border-blue-900 text-blue-900 hover:bg-blue-800 hover:text-white px-2 py-1 mx-1 bg-transparent rounded-lg ">Details</button>
-                <button 
-                    (click)="addProductToCart(p)"
-                    class="border border-green-800 text-green-800 hover:bg-green-800 hover:text-white px-2 py-1 mx-1 bg-transparent rounded-lg ">Add to card-title</button>
+                   (click)="displayDetails(p)"
+                   class="border detail-btn absolute text-white w-[120px] ">Details</button>
             </div>
+              <!--  <button 
+                (click)="addProductToCart(p)"
+                class="border border-green-800 text-green-800 hover:bg-green-800 hover:text-white px-2 py-1 mx-1 bg-transparent rounded-lg ">Add to card-title</button> -->
         </div>
     </div>
 </div>
