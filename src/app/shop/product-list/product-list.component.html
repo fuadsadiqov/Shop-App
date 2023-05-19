@@ -17,7 +17,7 @@
 <div class="row">
     <div class="grid grid-cols-12 gap-x-4">
     <div *ngFor="let p of products" class="lg:col-span-4 md:col-span-6 col-span-12 ">
-        <div class="card shadow-xl rounded-lg relative bg-white pb-3 mb-5">
+        <div class="card shadow-xl rounded-lg relative bg-white pb-3 mb-5 cursor-pointer" (click)="displayDetails(p)">
             <img class="rounded-xl w-full h-52 object-contain py-1" src="{{p.imageUrl}}" alt="{{p.name}}">
             <div class="card-body px-3">
                 <h4 class="card-title text-center pt-3">
@@ -26,10 +26,6 @@
                 <p class="text-center text-xl">
                     {{p.price | currency: '₼'}}
                 </p>
-                <button 
-                   (click)="displayDetails(p)"
-                   class="border detail-btn absolute text-white w-[120px] ">Details</button>
-            </div>
               <!--  <button 
                 (click)="addProductToCart(p)"
                 class="border border-green-800 text-green-800 hover:bg-green-800 hover:text-white px-2 py-1 mx-1 bg-transparent rounded-lg ">Add to card-title</button> -->

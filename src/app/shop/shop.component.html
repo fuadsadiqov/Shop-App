@@ -25,7 +25,7 @@
        <category-list (category)="getCategory($event)" class="lg:col-span-3 col-span-12 md:col-span-12"></category-list>
         <div class="lg:col-span-9 col-span-12 md:col-span-12 p-2">
               <product-list [products]="products"></product-list>
-              <div class="flex justify-center">
+              <div class="flex flex-col items-center gap-4 justify-center">
                 <div class="flex gap-3 text-lg">
                     <button 
                         *ngFor="let page of pageNumbers"

@@ -10,7 +10,7 @@ import { Product } from 'src/app/model/product.model';
 })
 export class ProductListComponent {
   constructor(
-    private cart: Cart,
+    public cart: Cart,
     private router: Router
   ){}
   @Input() products: Product[] = []
