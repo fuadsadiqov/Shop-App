@@ -1,3 +1,13 @@
 <navbar></navbar>
-
-<app-footer></app-footer>
+<div class="pt-100">
+    <div class="flex flex-col items-center pb-8">
+        <h2 class="text-3xl  font-semibold">Xəbərlər</h2>
+        <img src="../../../assets/shortcut.svg" width="150" alt="">
+    </div>
+    <div class="container grid gap-4 grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 justify-items-center md:px-[60px]">
+        <ng-container *ngFor="let item of newsData">
+            <app-news-item [item]="item"></app-news-item>
+        </ng-container>
+    </div>
+    <app-footer></app-footer>
+</div>

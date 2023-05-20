@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { newsdata } from 'newsData';
+import { NewsInterface } from 'src/app/model/news.interface';
 import { Product } from 'src/app/model/product.model';
 import { ProductRepository } from 'src/app/model/product.repository';
 
@@ -12,6 +14,7 @@ export class HomeComponent {
   public selectedCategory: any
   public productsPerPage = 3
   public selectedPage = 1
+  public newsData: NewsInterface[] = newsdata.slice(0, 4)
 
   constructor(
     private productRepository: ProductRepository,
@@ -23,4 +26,5 @@ export class HomeComponent {
               .getProducts(this.selectedCategory)
               .slice(index, index + this.productsPerPage)
   }
+  
 }

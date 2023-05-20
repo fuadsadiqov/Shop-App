@@ -14,7 +14,6 @@ export class ShopComponent{
     public productsPerPage = 4
     public selectedPage = 1
     public selectedProducts : Product[] = []
-    public filteredProducts!: Product[]
 
     constructor(private productRepository: ProductRepository){} 
 
@@ -27,10 +26,6 @@ export class ShopComponent{
         return this.productRepository
         .getProducts(this.selectedCategory)
         .slice(index, index + this.productsPerPage)
-    }
-    searchProduct(value: string){
-        this.filteredProducts = this.products.filter((product: Product) => product.name?.toLowerCase().includes(value.toLowerCase()))
-        console.log(this.filteredProducts);
     }
     get pageNumbers(): number[]{
         return Array(Math.ceil(this.productRepository

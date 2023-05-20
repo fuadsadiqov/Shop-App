@@ -15,10 +15,11 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from "@angular/common/http";
 import { NewsComponent } from './news/news.component';
+import { NewsItemComponent } from './news/news-item/news-item.component';
 
 @NgModule({
     imports: [ModelModule, BrowserModule, FormsModule, RouterModule, HttpClientModule],
-    declarations: [ShopComponent, NavbarComponent, CartSummaryComponent, CartDetailComponent, CheckoutComponent, ProductListComponent, CategoryListComponent, ProductListComponent, HomeComponent, FooterComponent, AboutComponent, NewsComponent],
+    declarations: [ShopComponent, NavbarComponent, CartSummaryComponent, CartDetailComponent, CheckoutComponent, ProductListComponent, CategoryListComponent, ProductListComponent, HomeComponent, FooterComponent, AboutComponent, NewsComponent, NewsItemComponent],
     exports: [ShopComponent, CartDetailComponent, CheckoutComponent]
 })
 export class ShopModule{}

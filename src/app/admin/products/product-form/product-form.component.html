@@ -17,7 +17,7 @@
             </label>
         </div>
         <div>
-            <label>
+            <label> 
                 <span>Image</span>
                 <input type="text" class="rounded-lg w-full border border-black px-2 py-1" name="imageUrl" [(ngModel)]="product.imageUrl">
             </label>
@@ -25,8 +25,11 @@
         <div>
             <label>
                 <span>Category</span>
-                <input type="text" class="rounded-lg w-full border border-black px-2 py-1" name="imageUrl" [(ngModel)]="product.category">
+                <select class="text-black" name="category" [(ngModel)]="product.category" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let category of categories">{{category.name}}</option>
+                </select>
             </label>
+            
         </div>
         <div>
             <label>

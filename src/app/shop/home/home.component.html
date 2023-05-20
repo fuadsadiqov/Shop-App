@@ -11,7 +11,7 @@
     <img class="w-full h-full object-cover object-top" src="../../../assets/home-banner-2.jpg" alt="">
 </div>
 <div class="product-list px-10 pt-5">
-    <h2 class="text-center text-4xl mb-2 font-bold text-[#91B40D]">Məhsullar</h2>
+    <h2 class="text-center text-4xl mb-2 font-bold text-black">Məhsullar</h2>
     <div class="shortcut flex justify-center mb-5">
         <img src="../../../assets/shortcut.svg" alt="">
     </div>
@@ -58,6 +58,15 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="news">
+    <div class="flex flex-col items-center mb-5">
+        <h2 class="text-center text-4xl font-bold text-black">Xəbərlər</h2>
+        <img src="../../../assets/shortcut.svg" width="160" alt="">
+    </div>
+    <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center">
+        <app-news-item [item]="item" *ngFor="let item of newsData"></app-news-item>
     </div>
 </div>
 <app-footer></app-footer>
