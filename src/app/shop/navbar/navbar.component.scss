@@ -71,6 +71,9 @@
                 li{
                     position: relative;
                 }
+                .active{
+                    color: #FFBF00;
+                }
                 li::after{
                     content: "";
                     display: block;
@@ -105,11 +108,13 @@
                         cursor: pointer;
                         p{
                             display: block;
-                            margin-bottom: 5px;
                             width: 25px;
                             height: 2.2px;
                             background-color: #91B40D;
                             border-radius: 3px;
+                            &:is(:nth-child(1), :nth-child(2)){
+                                margin-bottom: 5px;
+                            }
                         }
                         &.activeIcon{
                             p:first-child{
@@ -136,21 +141,7 @@
         position: relative;
         span{
             font-size: 20px;
-            color: #FFFFFF;
-        }
-    }
-    @media (max-width: 768px) {
-        .cart-icon{
-            transform: translateX(-150vw);
-            position: absolute;
-            transition: 0.5s all;            
-            &.activeCart{
-                transform: translate(-62vw, 47vh);
-                z-index: 10;
-                span{
-                    color: #1A5221;
-                }
-            }
+            color: #91B40D;
         }
     }
 }

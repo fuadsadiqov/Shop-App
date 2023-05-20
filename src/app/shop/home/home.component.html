@@ -1,5 +1,13 @@
-<navbar></navbar>
-<div class="home h-[650px] pt-10">
+<div *ngIf="products.length == 0" class="preloader flex items-center justify-center h-[100vh] flex-col">
+    <div class="preloader-content relative flex items-center justify-center w-[260px] h-[260px]">
+        <p class="absolute text-[#FFBF00] text-3xl top-[117px]">AGRID</p>
+        <img width="250" height="250" src="../../../assets/preload.svg" alt="">
+    </div>
+</div>
+<div class="home" *ngIf="products.length != 0">
+    <navbar></navbar>
+<div class="home h-[650px] relative">
+    <div class="darken absolute w-full h-full bg-black opacity-30"></div>
     <img class="w-full h-full object-cover object-top" src="../../../assets/home-banner-2.jpg" alt="">
 </div>
 <div class="product-list px-10 pt-5">
@@ -53,3 +61,4 @@
     </div>
 </div>
 <app-footer></app-footer>
+</div>

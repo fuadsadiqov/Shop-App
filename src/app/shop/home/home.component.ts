@@ -10,7 +10,7 @@ import { ProductRepository } from 'src/app/model/product.repository';
 export class HomeComponent {
 
   public selectedCategory: any
-  public productsPerPage = 4
+  public productsPerPage = 3
   public selectedPage = 1
 
   constructor(

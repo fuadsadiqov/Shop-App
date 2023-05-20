@@ -10,6 +10,7 @@ import { CartDetailComponent } from './shop/cart-detail/cart-detail.component';
 import { CheckoutComponent } from './shop/checkout/checkout.component';
 import { HomeComponent } from './shop/home/home.component';
 import { AboutComponent } from './shop/about/about.component';
+import { NewsComponent } from './shop/news/news.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AboutComponent } from './shop/about/about.component';
       {path: 'home', component: HomeComponent},
       {path: 'about', component: AboutComponent},
       {path: 'shop', component: ShopComponent},
+      {path: 'news', component: NewsComponent},
       {path: 'cart', component: CartDetailComponent},
       {path: 'checkout', component: CheckoutComponent},
       {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},

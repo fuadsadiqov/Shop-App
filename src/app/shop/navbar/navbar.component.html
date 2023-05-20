@@ -42,35 +42,39 @@
                     </div>
                 </div>
             </div>
-                <div class="navbar-logo text-lg font-semibold text-white"><a routerLink="/products"><img src="../../../assets/logo.svg" alt=""></a></div>
+                <div class="navbar-logo flex-0 text-lg font-semibold text-white"><a routerLink="/products"><img width="120" src="../../../assets/footer-logo.svg" alt=""></a></div>
                 <ul [class.activeList]="activeNavbar" class="flex gap-3 navbar-list items-center text-white text-lg font-semibold">
                     <li>
-                        <a routerLink="/home">Home</a>
+                        <a routerLinkActive="active" routerLink="/home">Əsas səhifə</a>
                     </li>
                     <li>
-                        <a routerLink="/about">About</a>
+                        <a routerLinkActive="active" routerLink="/about">Haqqımızda</a>
                     </li>
                     <li>
-                        <button routerLink="/shop">Products</button>
+                        <button routerLinkActive="active" routerLink="/shop">Məhsullar</button>
                     </li>
                     <li>
-                        <button routerLink="/checkout">Orders</button>
+                        <button routerLinkActive="active" routerLink="/news">Xəbərlər</button>
                     </li>
                     <li>
-                        <button routerLink="/admin/main">Admin</button>
+                        <button routerLinkActive="active" routerLink="/admin/main">Admin</button>
                     </li>
-                </ul>
-                <ul class="flex navbar-right items-center">
-                    <li (click)="toggle()" [class.activeIcon]="activeNavbar" class="md:hidden block hamburger-icon">
-                        <p></p>
-                        <p></p>
-                        <p></p>
-                    </li>
-                    <li [class.activeCart]="activeNavbar" class="opacity-70 cart-icon hover:opacity-100">
+                    <li  class="cart-icon">
                         <button class="flex gap-1" routerLink="/cart">
                             <span>{{cart.total | currency: '₼'}}</span>
                             <img width="25" src="../../../assets/cart.svg" alt="">
                         </button>
+                    </li>
+                </ul>
+                <ul class="flex gap-9 navbar-right items-center">
+                    <li class="flex">
+                        <img src="../../../assets/location-sign-svgrepo-com.svg" width="20" alt="">
+                        <p class="text-white text-lg">{{currentLoc}}</p>
+                    </li>
+                    <li (click)="toggle()" [class.activeIcon]="activeNavbar" class="md:hidden block hamburger-icon">
+                        <p></p>
+                        <p></p>
+                        <p></p>
                     </li>
                 </ul>
         </div>

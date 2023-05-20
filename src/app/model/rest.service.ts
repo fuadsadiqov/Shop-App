@@ -7,13 +7,20 @@ import { Product } from './product.model';
 
 @Injectable()
 export class RestService {
-
+  
   // baseUrl: string = "http://localhost:3500/"
   baseUrl: string = "https://agrid-server.vercel.app/"
+  locUrl: string = "https://api.ipify.org/?format=json"
   token: string | undefined
 
-  constructor(private http: HttpClient) { }
+  
+  constructor(private http: HttpClient) {}
 
+  getIp(ip: string) {
+    const url = "https://ipapi.co/" + ip + "/json/";
+    return this.http.get(url)
+  }
+  
   getProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+'products')
   } 
@@ -28,7 +35,7 @@ export class RestService {
   }
   addProduct(product: Product): Observable<Product>{ 
     return this.http.post<Product>(this.baseUrl + 'products', product, {
-      headers: new HttpHeaders({
+      headers: new HttpHeaders({  
         "Authorization": `Bearer<${this.token}>`
       })
     })
