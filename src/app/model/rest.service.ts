@@ -20,7 +20,6 @@ export class RestService {
     const url = "https://ipapi.co/" + ip + "/json/";
     return this.http.get(url)
   }
-  
   getProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+'products')
   } 
