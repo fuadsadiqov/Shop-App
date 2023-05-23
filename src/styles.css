@@ -17,3 +17,7 @@
     background-color: #FFBF00;
     color: #FFFFFF;
 }
+@media (min-width: 1536px)
+.container {
+    max-width: none;
+}
