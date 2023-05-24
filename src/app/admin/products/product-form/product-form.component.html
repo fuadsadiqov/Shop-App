@@ -24,8 +24,8 @@
         </div>
         <div>
             <label>
-                <span>Category</span>
-                <select class="text-black" name="category" [(ngModel)]="product.category" [ngModelOptions]="{standalone: true}">
+                <span>Category</span> <br>
+                <select class="text-black border border-black" name="category" [(ngModel)]="product.category" [ngModelOptions]="{standalone: true}">
                     <option *ngFor="let category of categories">{{category.name}}</option>
                 </select>
             </label>

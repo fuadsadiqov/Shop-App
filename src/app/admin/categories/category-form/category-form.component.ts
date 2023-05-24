@@ -7,14 +7,14 @@ import { CategoryRepository } from 'src/app/model/category.repository';
 @Component({
   selector: 'app-category-form',
   templateUrl: './category-form.component.html',
-  styleUrls: ['./category-form.component.css']
+  styleUrls: ['./category-form.component.css', '../../admin.component.css']
 })
 export class CategoryFormComponent {
   editing: boolean = false
   category: any = new Category()
 
   constructor(private activeRoute: ActivatedRoute, private repository: CategoryRepository, private router: Router){
-    this.editing = this.activeRoute.snapshot.params['mode'] == "edit"
+    this.editing = this.activeRoute.snapshot.params['mode'] == "edit"    
     if(this.editing){
       this.category = repository.getCategory(activeRoute.snapshot.params['id'])
     }

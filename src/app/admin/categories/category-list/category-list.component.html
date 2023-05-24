@@ -6,7 +6,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr class="border text-center py-2 hover:bg-slate-700 hover:text-white border-slate-700 px-3 py-2" *ngFor="let product of getCategoriesList()">
+        <tr class="border text-center hover:bg-slate-700 hover:text-white border-slate-700 px-3 py-2" *ngFor="let product of getCategoriesList()">
             <td>{{product.name}}</td>
             <td>
                 <button [routerLink]="['/admin/main/categories/edit', product.id]" class="bg-green-500 text-white px-2 py-1 mr-2 rounded-lg">Edit</button>

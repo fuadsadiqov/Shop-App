@@ -10,7 +10,7 @@ import { RestService } from 'src/app/model/rest.service';
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
-  styleUrls: ['./product-form.component.css']
+  styleUrls: ['./product-form.component.css',  '../../admin.component.css']
 })
 export class ProductFormComponent {
   

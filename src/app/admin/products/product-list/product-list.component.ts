@@ -5,7 +5,7 @@ import { ProductRepository } from 'src/app/model/product.repository';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css', '../../admin.component.css']
 })
 export class ProductListComponent {
   constructor(private productRepository: ProductRepository){}
