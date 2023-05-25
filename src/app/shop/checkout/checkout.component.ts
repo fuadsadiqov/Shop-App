@@ -22,19 +22,21 @@ export class CheckoutComponent implements OnInit{
   }
   
   ngOnInit(): void{
-
+    
   }
   submitOrder(form: NgForm){
-    this.submitted = true   
+    this.submitted = true
+    console.log(form);
+    
     if(form.valid){
-      setTimeout(() => {
+      // setTimeout(() => {
         this.orderRepository.saveOrder(this.order)
         .subscribe(() => {
         this.order.clearOrder()
         this.orderSent = true
-        this.submitted = false
-        })
-      }, 2000);
+        this.submitted = false  
+      })
+      // }, 2000);
     }
   }
 }

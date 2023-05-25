@@ -1,10 +1,10 @@
 <navbar></navbar>
-<div *ngIf="submitted" class="preloader flex pt-100 items-center justify-center h-[100vh] flex-col">
+<!-- <div *ngIf="submitted" class="preloader flex pt-100 items-center justify-center h-[100vh] flex-col">
     <div class="preloader-content relative flex items-center justify-center w-[260px] h-[260px]">
         <p class="absolute text-[#FFBF00] text-3xl top-[117px]">AGRID</p>
         <img width="250" height="250" src="../../../assets/preload.svg" alt="">
     </div>
-</div>
+</div> -->
 <div *ngIf="orderSent" class="pt-100 mx-2 text-center">
     <h2 class="font-bold text-4xl mb-2 text-gray-800">Thanks for shopping</h2>
     <p class="text-lg mb-3">Your order is being prepared</p>
@@ -77,7 +77,7 @@
                     <label class="text-sm" for="terms">Istifadəçi şərtlərini oxudum və razıyam</label>
                 </div>
 
-                <button type="submit" [disabled]="cart.itemCount == 0 && !form.valid" class="bg-blue-500 disabled:opacity-50 rounded text-white px-2 py-1">{{total | currency: '₼'}} Complete order</button>
+                <button type="submit" [disabled]="!form.valid" class="bg-blue-500 disabled:opacity-50 rounded text-white px-2 py-1">{{total | currency: '₼'}} Complete order</button>
                 <!-- <button type="submit" routerLink="/shop" class="bg-green-500 rounded text-white ml-2 px-2 py-1">Continue to shopping</button> -->
             </form>
         </div>
