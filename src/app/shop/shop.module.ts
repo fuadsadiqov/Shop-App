@@ -17,9 +17,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { NewsComponent } from './news/news.component';
 import { NewsItemComponent } from './news/news-item/news-item.component';
 import { ContactComponent } from './contact/contact.component';
+import { TextMaskModule } from 'angular2-text-mask';
+
 
 @NgModule({
-    imports: [ModelModule, BrowserModule, FormsModule, RouterModule, HttpClientModule],
+    imports: [ModelModule, BrowserModule, FormsModule, RouterModule, HttpClientModule, TextMaskModule],
     declarations: [ShopComponent, NavbarComponent, CartSummaryComponent, CartDetailComponent, CheckoutComponent, ProductListComponent, CategoryListComponent, ProductListComponent, HomeComponent, FooterComponent, AboutComponent, NewsComponent, NewsItemComponent, ContactComponent],
     exports: [ShopComponent, CartDetailComponent, CheckoutComponent]
 })

@@ -13,12 +13,14 @@ export class AuthComponent {
   public username: string = '';
   public password: string = '';
   public errorMessage: any = null;
-
+  public loading: boolean = false
   constructor(private router: Router, private authService: AuthService){}
 
   login(form: NgForm){
     if(form.valid){
-        // this.authService.authenticate(this.username, this.password)
+        this.loading = true
+        setTimeout(() => {
+          // this.authService.authenticate(this.username, this.password)
         // .subscribe(res => {
           // if(res){
             if(this.username == 'admin' && this.password == 'admin'){
@@ -28,6 +30,8 @@ export class AuthComponent {
           this.errorMessage = "Incorrect username or password"
         // }
         // )
+          this.loading = false
+        }, 1000);
     }
     else{
       this.errorMessage = 'Enter the information completely'

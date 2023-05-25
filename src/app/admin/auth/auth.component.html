@@ -1,4 +1,9 @@
-<div class="flex justify-center flex-col items-center h-[100vh]">
+<div class="flex items-center justify-center h-[100vh] text-xl" *ngIf="loading">
+    <span>
+        Loading...
+    </span>
+</div>
+<div *ngIf="!loading" class="flex justify-center flex-col items-center h-[100vh]">
     <div *ngIf="errorMessage != null" class="w-[600px] bg-red-600 p-2 text-center text-white">
         {{errorMessage}}
     </div>
