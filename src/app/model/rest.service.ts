@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Category } from './category.model';
 import { Order } from './order.model';
 import { Product } from './product.model';
+// import { AngularFireDatabase } from '@angular/fire/database';
 
 @Injectable()
 export class RestService {
@@ -82,5 +83,8 @@ export class RestService {
       this.token = res.success ? res.token : null 
       return res.success
     }))
+  }
+  addFirePro(product: Product){
+    return this.http.post("https://agrid-c7b35-default-rtdb.firebaseio.com/", product)
   }
 }

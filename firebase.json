@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "shopapp",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

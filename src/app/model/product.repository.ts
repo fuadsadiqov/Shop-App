@@ -2,6 +2,7 @@ import { Injectable, OnInit } from "@angular/core";
 import { Category } from "./category.model";
 import { Product } from "./product.model";
 import { RestService } from "./rest.service";
+import { Database } from '@angular/fire/database'
 
 @Injectable()
 export class ProductRepository implements OnInit{

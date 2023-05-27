@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "agrid-c7b35": {
+      "hosting": {
+        "shopapp": [
+          "agrid-c7b35"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "agrid-c7b35"
+  }
+}

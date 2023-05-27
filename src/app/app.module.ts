@@ -12,6 +12,11 @@ import { HomeComponent } from './shop/home/home.component';
 import { AboutComponent } from './shop/about/about.component';
 import { NewsComponent } from './shop/news/news.component';
 import { ContactComponent } from './shop/contact/contact.component';
+// Firebase Module
+import { AngularFireModule } from '@angular/fire/compat'
+import { initializeApp, provideFirebaseApp, getApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
 
 @NgModule({
   declarations: [
@@ -20,6 +25,7 @@ import { ContactComponent } from './shop/contact/contact.component';
   imports: [
     BrowserModule,
     ShopModule,
+    AngularFireModule.initializeApp(environment.firebase),
     RouterModule.forRoot([
       {path: 'home', component: HomeComponent},
       {path: 'about', component: AboutComponent},
@@ -30,7 +36,9 @@ import { ContactComponent } from './shop/contact/contact.component';
       {path: 'checkout', component: CheckoutComponent},
       {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
       {path: '**', redirectTo: "/home"},
-    ])
+    ]),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase()),
   ],
   providers: [],
   bootstrap: [AppComponent]
