@@ -11,12 +11,12 @@ interface Item {
   template: '<router-outlet></router-outlet>'
 })
 export class AppComponent {
-  title = 'Shop Application';
-  item$: Observable<Item[]>;
-  firestore: Firestore = inject(Firestore);
+  // title = 'Shop Application';
+  // item$: Observable<Item[]>;
+  // firestore: Firestore = inject(Firestore);
 
-  constructor() {
-    const itemCollection = collection(this.firestore, 'items');
-    this.item$ = collectionData(collection);
-  }
+  // constructor() {
+  //   const itemCollection = collection(this.firestore, 'items');
+  //   this.item$ = collectionData(collection);
+  // }
 }
