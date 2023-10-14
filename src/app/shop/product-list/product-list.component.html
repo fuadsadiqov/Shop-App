@@ -1,23 +1,7 @@
-<div class="modal" *ngIf="selectedProduct" [class.activeModal]="selectedProduct">
-    <div class="modal-content relative">
-        <div class="close-icon font-sans text-lg cursor-pointer absolute right-5 top-2" (click)="hideDetails()">X</div>
-        <div class="modal-img object-cover p-3">
-            <img src="{{selectedProduct.imageUrl}}" class="w-full" alt="">
-        </div>
-        <div class="modal-info">
-            <h2 class="text-2xl font-bold">{{selectedProduct.name}}</h2>
-            <p class="text-gray-500">{{selectedProduct.category}}</p>
-            <p>{{selectedProduct.description}}</p>
-            <p class="text-xl mt-1 mb-2">{{selectedProduct.price | currency: '₼'}}</p>
-            <button class="bg-red-500 text-white px-2 py-1 mr-3" (click)="hideDetails()">Cancel</button>        
-            <button class="bg-green-500 text-white px-2 py-1" (click)="addProductToCart(selectedProduct)">Add to Cart</button>        
-        </div>
-    </div>
-</div>
 <div class="row">
     <div class="grid grid-cols-12 gap-x-4">
     <div *ngFor="let p of products" class="lg:col-span-4 md:col-span-6 col-span-12 ">
-        <div class="card hover:scale-[1.03] flex justify-center items-center flex-col shadow-xl rounded-lg relative bg-white pb-3 mb-5 cursor-pointer" (click)="displayDetails(p)">
+        <a [routerLink]="'/item/' + p.id" class="card hover:scale-[1.03] flex justify-center items-center flex-col shadow-xl rounded-lg relative bg-white pb-3 mb-5 cursor-pointer" >
             <img class="rounded-xl w-[60%] h-52 object-contain py-1" src="{{p.imageUrl}}" alt="{{p.name}}">
             <div class="card-body px-3">
                 <h4 class="card-title text-center pt-3">
@@ -27,6 +11,6 @@
                     {{p.price | currency: '₼'}}
                 </p>
             </div>
-    </div>
+    </a>
 </div>
 </div>

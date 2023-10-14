@@ -23,8 +23,8 @@ export class HomeComponent {
       let index = (this.selectedPage - 1) * this.productsPerPage
       
       return this.productRepository
-              .getProducts(this.selectedCategory)
-              .slice(index, index + this.productsPerPage)
+            .getProducts(this.selectedCategory)
+            .slice(index, index + this.productsPerPage)
   }
   
 }

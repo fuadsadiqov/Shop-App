@@ -1,0 +1,48 @@
+<div class="shop" >
+    <navbar></navbar>
+    <div class="container mb-5 pt-100">
+        <div class="contact flex mb-10 items-center flex-col">
+            <h2 class="text-4xl font-bold">Məhsullar</h2>
+            <img src="../../../assets/shortcut.svg" alt="">
+        </div>
+        <div class="grid grid-cols-12">
+            <div class="lg:col-span-9 mb-2 -z-10 col-span-12 md:col-span-12 w-[350px] h-[60px] flex justify-between items-center px-3 text-white ml-3 md:ml-7 rounded-lg bg-yellow-400 opacity-80 ">
+                <div>
+                    <span>There are currently {{selectedProducts.length}} product</span>
+                    <span *ngIf="selectedProducts.length > 1">s</span> <span class="ml-1"> avilable</span>
+                </div> 
+                <div>
+                    <select class="text-black"
+                        [value]="productsPerPage"
+                        (change)="changePageSize($event.target)"
+                    >
+                        <option value="2">2 products</option>
+                        <option value="3">3 products</option>
+                        <option value="4">4 products</option>
+                        <option value="6">6 products</option>
+                        <option value="8">8 products</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-12 mx-8">
+        <category-list (category)="getCategory($event)" class="lg:col-span-3 col-span-12 md:col-span-12"></category-list>
+            <div class="lg:col-span-9 col-span-12 md:col-span-12 p-2">
+                <product-list [products]="products"></product-list>
+                <div class="flex flex-col items-center gap-4 justify-center">
+                    <div class="flex gap-3 text-lg">
+                        <button 
+                            *ngFor="let page of pageNumbers"
+                            (click)="changePage(page)" 
+                            class="border border-black rounded-2xl px-3 hover:bg-blue-700  hover:text-white"
+                            [class.bg-emerald-600]="page===selectedPage">{{page}}</button>
+                    </div>
+                    <div class="bg-red-500 text-white w-full py-2 px-2 mb-3 flex flex-col" *ngIf="products.length === 0">
+                        <p>This page have not any product</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>

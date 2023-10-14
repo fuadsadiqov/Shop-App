@@ -14,16 +14,10 @@ export class ProductListComponent {
     private router: Router
   ){}
   @Input() products: Product[] = []
-  selectedProduct: Product | null = null
 
-  displayDetails(product: Product){
-    this.selectedProduct = product
-  }
-  hideDetails(){
-    this.selectedProduct = null
-  }
   addProductToCart(product: Product){
     this.cart.addItem(product)
     this.router.navigateByUrl('/cart')
-} 
+  }
+  
 }

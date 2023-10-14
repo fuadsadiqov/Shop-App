@@ -18,11 +18,14 @@ import { NewsComponent } from './news/news.component';
 import { NewsItemComponent } from './news/news-item/news-item.component';
 import { ContactComponent } from './contact/contact.component';
 import { TextMaskModule } from 'angular2-text-mask';
+import { ItemDetailViewComponent } from './item-detail-view/item-detail-view.component';
+import { ShopViewComponent } from './shop-view/shop-view.component';
+import { ShopRoutingModule } from "./shop-routing.module";
 
 
 @NgModule({
-    imports: [ModelModule, BrowserModule, FormsModule, RouterModule, HttpClientModule, TextMaskModule],
-    declarations: [ShopComponent, NavbarComponent, CartSummaryComponent, CartDetailComponent, CheckoutComponent, ProductListComponent, CategoryListComponent, ProductListComponent, HomeComponent, FooterComponent, AboutComponent, NewsComponent, NewsItemComponent, ContactComponent],
+    imports: [ModelModule, BrowserModule, FormsModule, RouterModule, HttpClientModule, TextMaskModule, ShopRoutingModule],
+    declarations: [ShopComponent, NavbarComponent, CartSummaryComponent, CartDetailComponent, CheckoutComponent, ProductListComponent, CategoryListComponent, ProductListComponent, HomeComponent, FooterComponent, AboutComponent, NewsComponent, NewsItemComponent, ContactComponent, ItemDetailViewComponent, ShopViewComponent],
     exports: [ShopComponent, CartDetailComponent, CheckoutComponent]
 })
-export class ShopModule{}
+export class ShopModule { }

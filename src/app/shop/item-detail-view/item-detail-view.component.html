@@ -1,0 +1,12 @@
+<div class="max-w-screen-xl mx-auto px-5 pt-5">
+    <div class="item flex gap-3 items-center" *ngIf="product">
+        <div class="">
+            <img src="{{ product.imageUrl }}" alt="">
+        </div>
+        <div class="flex flex-col gap-5">
+            <h4 class="font-medium text-3xl">{{ product.name }}</h4>
+            <p>{{ product.description }}</p>
+            <p>{{ product.price }}</p>
+        </div>
+    </div>
+</div>
