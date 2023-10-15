@@ -29,6 +29,6 @@ export class PostService{
     }  
 
     uploadFile(formData: any){
-        return this.http.post<any>(this.AUTH_API + 'api/uploads', formData)
+        return this.http.post<any>(this.AUTH_API + 'uploads', formData)
     }
 }

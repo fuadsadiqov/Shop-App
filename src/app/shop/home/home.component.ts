@@ -25,7 +25,11 @@ export class HomeComponent implements OnInit{
   ){} 
   getOrganicProducts(){
     this.postService.getPosts()
-    .subscribe((res: Product[] | any) => this.organicProducts = res.slice(res.length - 3, 3));
+    .subscribe((res: Product[] | any) => {
+      this.organicProducts = res.slice(res.length - 3)
+      console.log(this.organicProducts);
+      
+    });
   }
   
   ngOnInit(): void { 

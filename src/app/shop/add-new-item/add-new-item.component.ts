@@ -41,33 +41,30 @@ export class AddNewItemComponent implements OnInit{
     newItemObj['userData'] = this.userData;
     newItemObj['category_id'] = Number(newItemObj['category_id']);
     
-    if(this.postForm.valid){
-      this.postService.addPost(newItemObj)
-      .subscribe(res => console.log(res));
-    }
+    // if(this.postForm.valid){
+      if (!this.selectedFile) {
+        return;
+      }
+  
+      const formData = new FormData();
+      formData.append('image', this.selectedFile);
+      this.postService.uploadFile(formData)
+      .subscribe(
+        (response) => {
+          console.log(response);
+          
+          newItemObj['imageUrl'] = response.url;
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+      // this.postService.addPost(newItemObj)
+      // .subscribe(res => console.log(res));
+    // }
   }
 
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
-  }
-
-  onUpload() {
-    if (!this.selectedFile) {
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('image', this.selectedFile);
-    this.postService.uploadFile(formData)
-    .subscribe(
-      (response) => {
-        console.log(response);
-        
-        this.imageUrl = response.url;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
   }
 }

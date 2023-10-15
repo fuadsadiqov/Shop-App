@@ -10,8 +10,7 @@
             <label for="title">Şəkil</label>
             <div>
                 <input type="file" (change)="onFileSelected($event)" accept="image/*" />
-                <button (click)="onUpload()">Upload</button>
-              </div>
+            </div>
               <div *ngIf="imageUrl">
                 <img [src]="imageUrl" alt="Uploaded Image" />
             </div>
