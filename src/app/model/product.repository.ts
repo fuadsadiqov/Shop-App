@@ -3,12 +3,13 @@ import { Category } from "./category.model";
 import { Product } from "./product.model";
 import { RestService } from "./rest.service";
 import { Database } from '@angular/fire/database'
+import { PostService } from "./post.service";
 
 @Injectable()
 export class ProductRepository implements OnInit{
     private products: Product[] = []
 
-    constructor(private restService: RestService){
+    constructor(private restService: RestService, private postService: PostService){
         this.restService
         .getProducts()
         .subscribe(products => this.products = products)    
@@ -26,6 +27,7 @@ export class ProductRepository implements OnInit{
             return this.products
         }
     }
+    
     saveProduct(product: Product){
         if(product.id == undefined || product.id == null || product.id == 0){
             this.restService.addProduct(product)
@@ -42,4 +44,5 @@ export class ProductRepository implements OnInit{
         this.restService.deleteProduct(product)
             .subscribe(p => this.products.splice(this.products.findIndex(p => p.id === product.id)?.valueOf(), 1))
     }
+
 }

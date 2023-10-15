@@ -4,3 +4,11 @@ export class Category{
         public name?: string
     ){}
 }
+
+export enum CategoryAction{
+    meyve = 1,
+    terevez,
+    taxil,
+    ari,
+    murebbe
+}

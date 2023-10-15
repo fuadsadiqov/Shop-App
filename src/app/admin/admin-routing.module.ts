@@ -1,16 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { AdminModule } from './admin.module';
-import { AuthGuard } from './auth.guard';
 import { AuthComponent } from './auth/auth.component';
 import { CategoryFormComponent } from './categories/category-form/category-form.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
-import { OrderListComponent } from './orders/order-list/order-list.component';
 import { ProductFormComponent } from './products/product-form/product-form.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 
 const routes: Routes = [
+  {path: '', component: AuthComponent},
   {path: 'auth', component: AuthComponent},
   {path: 'main', component: AdminComponent,
    canActivate: [
@@ -22,9 +20,8 @@ const routes: Routes = [
     {path: 'categories/:mode/:id', component: CategoryFormComponent},
     {path: 'categories/:mode', component: CategoryFormComponent},
     {path: 'categories', component: CategoryListComponent},
-    {path: 'orders', component: OrderListComponent},
   ]},
-  {path: '**', redirectTo: 'auth'}
+  // {path: '**', redirectTo: 'auth'}
 ];
 
 @NgModule({

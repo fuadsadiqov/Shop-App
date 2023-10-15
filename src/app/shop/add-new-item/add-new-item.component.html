@@ -1,0 +1,31 @@
+
+<div class="max-w-screen-xl mx-auto px-5 pt-10">
+    <h4 class="text-2xl font-medium">Yeni məhsul əlavə edin</h4>
+    <div class="w-full flex justify-center items-center">
+        <form class="flex flex-col gap-2" [formGroup]="postForm" (submit)="submit()">
+            <label for="title">Məhsulun adı</label>
+            <input class="border px-4 rounded-md py-1 border-gray-400" formControlName="title" type="text" placeholder="Məhsul adı">
+            <label for="title">Qiyməti</label>
+            <input class="border px-4 rounded-md py-1 border-gray-400" formControlName="price" type="number" placeholder="Qiymət">
+            <label for="title">Şəkil</label>
+            <div>
+                <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+                <button (click)="onUpload()">Upload</button>
+              </div>
+              <div *ngIf="imageUrl">
+                <img [src]="imageUrl" alt="Uploaded Image" />
+            </div>
+            <select formControlName="category_id" class="border border-gray-400 rounded-md py-1">
+                <option disabled value="">Seçin</option>
+                <option *ngFor="let item of getCategories()" [value]="item.id">
+                    {{item.name}}
+                </option>
+            </select>
+            <label for="title">Address</label>
+            <input class="border px-4 rounded-md py-1 border-gray-400" formControlName="address" type="text" placeholder="Adress">
+            <label for="title">Məhsulun kontenti</label>
+            <textarea class="border px-4 rounded-md py-1 border-gray-400" formControlName="content" type="text" placeholder="Məhsul kontenti"></textarea>
+            <button class="-bg--primary-green -text--primary-yellow hover:-bg--primary-yellow hover:-text--primary-green px-2 py-2 transition-colors rounded-md">Əlavə edin</button>
+        </form>
+    </div>
+</div>

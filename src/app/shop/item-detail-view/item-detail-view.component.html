@@ -1,12 +1,25 @@
-<div class="max-w-screen-xl mx-auto px-5 pt-5">
-    <div class="item flex gap-3 items-center" *ngIf="product">
-        <div class="">
-            <img src="{{ product.imageUrl }}" alt="">
+<div class="max-w-screen-xl mx-auto px-5 pt-[4rem]" *ngIf="product">
+    <h4 class="font-medium text-3xl pb-3">Məhsul: {{ product.name || product.title }}</h4>
+    <div class="item flex gap-10 md:flex-row flex-col items-center">
+        <div class="max-w-[30rem] w-full">
+            <img class="w-full object-cover" src="{{ product.imageUrl }}" alt="">
         </div>
         <div class="flex flex-col gap-5">
-            <h4 class="font-medium text-3xl">{{ product.name }}</h4>
-            <p>{{ product.description }}</p>
-            <p>{{ product.price }}</p>
+            <p>Məbləğ: <span class="text-xl -text--primary-yellow font-semibold">{{ product.price | currency: '₼' }}</span></p>
+            <p>Detallı məlumat: {{ product.description || product.content }}</p>
+            <div class="flex flex-col gap-1">
+                <p>Fermerin adı: Rafiq Rüstəmov</p>
+                <div class="flex">
+                    <img class="w-7" src="../../../assets/phone.svg" alt="">
+                    <!-- <img class="w-7" src="../../../assets/whatsapp.svg" alt=""> -->
+                    +994 XX XXX XX XX
+                </div>
+            </div>
+            <p class="flex items-center gap-2"><img class="w-8" src="../../../assets/location.svg" alt=""> <a target="_blank" href="https://www.google.com/maps?q={{product.address}}">{{ product.address }}</a></p>
         </div>
+    </div>
+    <div>
+        <h4 class="text-center text-3xl font-medium pt-10 pb-5">Ən son məhsullar</h4>
+        <product-list [products]="lastThreeProducts"></product-list>
     </div>
 </div>

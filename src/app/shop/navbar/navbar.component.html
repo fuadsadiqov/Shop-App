@@ -1,40 +1,10 @@
 <div class="navbar fixed w-full px-6 py-3">
     <div class="container flex flex-col ">
-        <div class="header-top flex justify-between">
-                <a class="flex tel gap-2" href="tel:+994705555777">
-                    <img src="../../../assets/telephone.svg" alt="">
-                    <span>994705555777</span>
-                </a>
-            <div class="socail">
-                <ul class="flex gap-3">
-                    <li>
-                        <a target="_blank" href="https://www.facebook.com/enactus.azerbaijan/">
-                            <img width="22" src="../../../assets/facebook.svg"  alt="Facebook Logo">
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://www.linkedin.com/company/enactus-ascca/">
-                            <img width="22" src="../../../assets/linkedin.svg" alt="Linkedin Logo">
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://www.instagram.com/enactus.ascca/?utm_medium=copy_link">
-                            <img width="22" src="../../../assets/instagram.svg" alt="Instagram Logo">
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://www.youtube.com/enactus">
-                            <img width="22" src="../../../assets/youtube.svg" alt="Youtube Logo">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="header-bottom flex justify-between">
             <div [class.active]="activeNavbar" class="navbar-bg">
                 <div class="mobile-navbar">
                     <div class="top flex justify-between">
-                        <img src="../../../assets/logo.svg" class="mobile-logo">
+                        <img src="../../../assets/logo (2).png" width="90" class="mobile-logo">
                         <ul (click)="toggle()" class="close-icon">
                             <li></li>
                             <li></li>
@@ -42,38 +12,54 @@
                     </div>
                 </div>
             </div>
-                <div class="navbar-logo flex-0 text-lg font-semibold text-white"><a routerLink="/products"><img width="120" src="../../../assets/footer-logo.svg" alt=""></a></div>
-                <ul [class.activeList]="activeNavbar" class="flex gap-3 navbar-list items-center text-white text-lg font-semibold">
+                <div class="navbar-logo flex-0 text-lg font-normal text-white"><a routerLink="/home"><img width="50" src="../../../assets/logo (2).png" alt=""></a></div>
+                <ul [class.activeList]="activeNavbar" class="flex gap-3 navbar-list items-center text-white text-md font-normal">
                     <li>
                         <a routerLinkActive="active" routerLink="/home">Əsas səhifə</a>
                     </li>
                     <li>
-                        <a routerLinkActive="active" routerLink="/about">Haqqımızda</a>
+                        <a routerLinkActive="active" routerLink="/shop">Məhsullar</a>
                     </li>
                     <li>
-                        <button routerLinkActive="active" routerLink="/shop">Məhsullar</button>
+                        <a routerLinkActive="active" routerLink="/admin">Admin</a>
                     </li>
                     <li>
-                        <button routerLinkActive="active" routerLink="/news">Xəbərlər</button>
-                    </li>
-                    <li>
-                        <button routerLinkActive="active" routerLink="/contact">Əlaqə</button>
-                    </li>
-                    <li>
-                        <button routerLinkActive="active" routerLink="/admin">Admin</button>
-                    </li>
-                    <li  class="cart-icon">
-                        <button class="flex gap-1" routerLink="/cart">
-                            <span>{{cart.total | currency: '₼'}}</span>
-                            <img width="25" src="../../../assets/cart.svg" alt="">
-                        </button>
+                        <a routerLink="/new-item" class="-bg--primary-yellow -text--primary-green inline-block px-3 py-1 rounded-md">+ Yeni məhsul</a>
                     </li>
                 </ul>
                 <ul class="flex gap-9 navbar-right items-center">
-                    <li class="flex">
-                        <img src="../../../assets/location-sign-svgrepo-com.svg" width="20" alt="">
-                        <p class="text-white text-lg">{{currentLoc}}</p>
-                    </li>
+                    <div class="flex items-center">
+                        <img src="../../../assets/search.svg" class="cursor-pointer" [ngClass]="{'flex': !activeSearchBar, 'hidden': activeSearchBar}" (click)="toggleSearchBar()" alt="">
+                        <form (submit)="searchItems(inputValue.value)" action="">
+                            <label for="search"></label>
+                            <div class="relative max-w-[13rem] w-full">
+                                <img class="absolute left-2 top-2 cursor-pointer" src="../../../assets/search.svg" alt="">
+                                <input type="text" placeholder="Axtarın" [ngClass]="{'flex': activeSearchBar, 'hidden': !activeSearchBar}" #inputValue class="py-1.5 pl-8 w-full bg-white border rounded-xl -text--primary-yellow px-2 placeholder:-text--primary-yellow text-sm outline-none" id="search">
+                                <img class="absolute right-2 top-2 w-4 cursor-pointer" (click)="activeSearchBar = false" src="../../../assets/close.svg" alt="">
+                            </div>
+                        </form>
+                        <div *ngIf="!authorizedUser" class="text-white navbar-list pl-3 flex gap-1">
+                            <a class="hover:-text--primary-yellow" routerLink="/login">Giriş</a>
+                            <span>|</span>
+                            <a class="hover:-text--primary-yellow" routerLink="/register">Qeydiyyat</a>
+                        </div>
+                        <div  class="text-white navbar-list pl-3 flex items-center gap-2">
+                        </div>
+                        
+                        <button *ngIf="authorizedUser" id="dropdownUserAvatarButton" data-dropdown-toggle="dropdownAvatar" class="flex mx-3 text-sm bg-gray-800 rounded-full md:mr-0" type="button">
+                            <span class="sr-only">Open user menu</span>
+                            <p class="w-8 h-8 rounded-full -bg--primary-yellow text-white flex items-center justify-center text-xl capitalize">{{ userData.username.charAt(0) }}</p>
+                        </button>
+                        <div id="dropdownAvatar" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                            <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                            <div class="capitalize">{{ userData.username }}</div>
+                            <div class="font-medium truncate">{{ userData.email }}</div>
+                            </div>
+                            <div class="py-2">
+                                <a (click)="logOut()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Çıxış et</a>
+                            </div>
+                        </div>
+                    </div>
                     <li (click)="toggle()" [class.activeIcon]="activeNavbar" class="md:hidden block hamburger-icon">
                         <p></p>
                         <p></p>

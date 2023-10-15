@@ -1,0 +1,45 @@
+<div class="max-w-screen-xl mx-auto px-5 py-10"> 
+    <h4 class="text-2xl font-medium">Qeydiyyat</h4>
+    <div class="flex flex-col pt-4 justify-center items-center ">
+        <form class="flex flex-col gap-1 max-w-[18rem] w-full" [formGroup]="userForm" (submit)="submit()">
+            <div *ngIf="isSuccessfull" class="bg-green-500 text-white w-full py-2 rounded-md my-2 px-1 text-md">Qeydiyyatınız uğurlar tamamlandı</div>
+            <div *ngIf="isSignupFailed" class="bg-red-500 text-white w-full py-2 rounded-md my-2 px-1 text-md">Xahiş olunur qeydiyyatı tamamlayın</div>
+            <label for="username">İstifadəçi adı</label>
+            <input type="text" class="border px-4 rounded-md py-1 border-gray-400" placeholder="İstifadəçi adı" formControlName="username">
+            <div *ngIf="userForm.controls['username'].invalid && (userForm.controls['username'].dirty || userForm.controls['username'].touched)" class="alert">
+                <div class="text-red-500" *ngIf="userForm.controls['username'].errors">
+                Ad tələb olunur
+              </div>
+            </div>
+            <label for="email">Email</label>
+            <input type="email" class="border px-4 rounded-md py-1 border-gray-400" placeholder="Email" formControlName="email">
+            <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)" class="alert">
+                <div class="text-red-500" *ngIf="userForm.controls['email'].errors">
+                Email tələb olunur
+              </div>
+            </div>
+            <label for="email">Mobil nömrə</label>
+            <input type="text" class="border px-4 rounded-md py-1 border-gray-400" placeholder="Mobil nömrə" formControlName="telephoneNumber">
+            <div *ngIf="userForm.controls['telephoneNumber'].invalid && (userForm.controls['telephoneNumber'].dirty || userForm.controls['telephoneNumber'].touched)" class="alert">
+                <div class="text-red-500" *ngIf="userForm.controls['telephoneNumber'].errors">
+                  Nömrə tələb olunur
+                </div>
+            </div>
+            <label for="password">Şifrə</label>
+            <input type="password" class="border px-4 rounded-md py-1 border-gray-400" placeholder="Şifrə" formControlName="password">
+            <div *ngIf="userForm.controls['password'].invalid && (userForm.controls['password'].dirty || userForm.controls['password'].touched)" class="alert">
+                <div class="text-red-500" *ngIf="userForm.controls['password'].errors">
+                Şifrə tələb olunur
+              </div>
+            </div>
+            <label for="confirmPassword">Şifrənin təsdiqi</label>
+            <input type="password" class="border px-4 rounded-md py-1 border-gray-400" placeholder="Şifrənin təsdiqi" formControlName="confirmPassword">
+            <div *ngIf="userForm.controls['confirmPassword'].invalid && (userForm.controls['confirmPassword'].dirty || userForm.controls['confirmPassword'].touched)" class="alert">
+                <div class="text-red-500" *ngIf="userForm.controls['confirmPassword'].errors">
+                Şifrə tələb olunur
+              </div>
+            </div>
+        <button class="-bg--primary-green -text--primary-yellow w-full rounded-md mt-2 py-2 hover:-bg--primary-yellow hover:-text--primary-green transition-colors" type="submit">Qeydiyyatdan keç</button>
+    </form>
+</div>
+</div>

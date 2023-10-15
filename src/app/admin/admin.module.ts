@@ -10,8 +10,6 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ProductFormComponent } from './products/product-form/product-form.component';
 import { CategoryListComponent } from './categories/category-list/category-list.component';
 import { CategoryFormComponent } from './categories/category-form/category-form.component';
-import { OrderListComponent } from './orders/order-list/order-list.component';
-
 
 @NgModule({
   declarations: [
@@ -21,7 +19,6 @@ import { OrderListComponent } from './orders/order-list/order-list.component';
     ProductFormComponent,
     CategoryListComponent,
     CategoryFormComponent,
-    OrderListComponent
   ],
   providers: [
     AuthGuard

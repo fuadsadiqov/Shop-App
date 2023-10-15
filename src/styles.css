@@ -2,7 +2,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
 .pt-100{
     padding-top: 150px;
 }
@@ -10,8 +11,8 @@
     height: 100vh;
 }
 *{
-    font-family: 'Cormorant Garamond', serif;
-    transition: 0.1s all;
+    font-family: 'Poppins', sans-serif;
+    /* transition: 0.1s all; */
 }
 ::selection{
     background-color: #FFBF00;

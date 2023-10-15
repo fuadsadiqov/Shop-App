@@ -11,16 +11,11 @@ export class RestService {
   
   // baseUrl: string = "http://localhost:3500/"
   baseUrl: string = "https://agrid-server.vercel.app/"
-  locUrl: string = "https://api.ipify.org/?format=json"
   token: string | undefined
 
   
   constructor(private http: HttpClient) {}
 
-  getIp(ip: string) {
-    const url = "https://ipapi.co/" + ip + "/json/";
-    return this.http.get(url)
-  }
   getProducts(): Observable<Product[]>{
     return this.http.get<Product[]>(this.baseUrl+'products')
   } 
@@ -83,8 +78,5 @@ export class RestService {
       this.token = res.success ? res.token : null 
       return res.success
     }))
-  }
-  addFirePro(product: Product){
-    return this.http.post("https://agrid-c7b35-default-rtdb.firebaseio.com/", product)
   }
 }

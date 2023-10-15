@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { Cart } from 'src/app/model/cart.model';
 import { Category } from 'src/app/model/category.model';
 import { CategoryRepository } from 'src/app/model/category.repository';
+import { PostService } from 'src/app/model/post.service';
 import { Product } from 'src/app/model/product.model';
 import { ProductRepository } from 'src/app/model/product.repository';
 
@@ -10,38 +12,37 @@ import { ProductRepository } from 'src/app/model/product.repository';
   templateUrl: './shop-view.component.html',
   styleUrls: ['./shop-view.component.css']
 })
-export class ShopViewComponent {
+export class ShopViewComponent implements OnInit{
   public selectedCategory: any
   public productsPerPage = 4
   public selectedPage = 1
   public selectedProducts : Product[] = []
+  public products: Product[] = [];
 
-  constructor(private productRepository: ProductRepository){} 
+  constructor(private postService: PostService){} 
 
-  get products(): Product[]{
-      let index = (this.selectedPage - 1) * this.productsPerPage
-      
-      this.selectedProducts = this.productRepository
-      .getProducts(this.selectedCategory)
-      
-      return this.productRepository
-      .getProducts(this.selectedCategory)
-      .slice(index, index + this.productsPerPage)
+  ngOnInit(): void {
+    this.getProducts();
   }
-  get pageNumbers(): number[]{
-      return Array(Math.ceil(this.productRepository
-          .getProducts(this.selectedCategory).length/this.productsPerPage))
-          .fill(0)
-          .map((a, i) => i + 1)
-  } 
-  changePage(page: number){
-      this.selectedPage = page
-  }
-  changePageSize(size: any){
-      this.productsPerPage = size.value
-      this.changePage(1);
-  }
-  getCategory(category: Category){
+  getCategory(category: Category){  
+    if(category){
       this.selectedCategory = category
+    }else{
+      this.selectedCategory = ''
+    }
+    this.getProducts();
+  }
+
+  getProducts(){
+    if(this.selectedCategory && this.selectedCategory.id){
+      this.postService.getPosts()
+      .subscribe((res: Product[] | any) => {
+        const filteredProducts = res.filter((product: Product) => product.categoryId == this.selectedCategory.id)
+        this.products = filteredProducts;
+      })
+    }else{
+      this.postService.getPosts()
+      .subscribe((res: Product[] | any) => this.products = res);
+    }
   }
 }

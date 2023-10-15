@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Category } from 'src/app/model/category.model';
+import { Category, CategoryAction } from 'src/app/model/category.model';
 import { CategoryRepository } from 'src/app/model/category.repository';
 
 @Component({
@@ -20,7 +20,7 @@ export class CategoryListComponent {
     return this.categoryRepository.getCategories()
   }
   changeCategory(newCategory?: Category){
-    this.selectedCategory = newCategory     
+    this.selectedCategory = newCategory;
     this.category.emit(newCategory)
   }
 }

@@ -2,24 +2,28 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ShopViewComponent } from './shop-view/shop-view.component';
-import { AboutComponent } from './about/about.component';
-import { NewsComponent } from './news/news.component';
-import { ContactComponent } from './contact/contact.component';
-import { CartDetailComponent } from './cart-detail/cart-detail.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 import { ItemDetailViewComponent } from './item-detail-view/item-detail-view.component';
 import { ShopComponent } from './shop.component';
+import { SearchViewComponent } from './search-view/search-view.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { RegisterPageComponent } from './register-page/register-page.component';
+import { AddNewItemComponent } from './add-new-item/add-new-item.component';
+import { AuthGuard } from '../admin/auth.guard';
+import { ShopGuard } from './shop.guard';
 
 const routes: Routes = [
-  {path: '', component: ShopComponent},
-  {path: 'shop', component: ShopViewComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'news', component: NewsComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'cart', component: CartDetailComponent},
-  {path: 'checkout', component: CheckoutComponent},
-  {path: 'item/:id', component: ItemDetailViewComponent},
+  {
+    path: '', component: ShopComponent,
+    children: [
+      { path: '', pathMatch: 'full', component: HomeComponent},
+      {path: 'shop', component: ShopViewComponent},
+      {path: 'home', component: HomeComponent},
+      {path: 'item/:id', component: ItemDetailViewComponent},
+      {path: 'search', component: SearchViewComponent},
+      {path: 'login', component: LoginPageComponent, canActivate: [AuthGuard], canActivateChild: [AuthGuard]},
+      {path: 'register', component: RegisterPageComponent},
+      {path: 'new-item', component: AddNewItemComponent, canActivate: [ShopGuard], canActivateChild: [ShopGuard]}
+    ]},  
 ];
 
 @NgModule({

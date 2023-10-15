@@ -12,7 +12,7 @@ import { ShopModule } from './shop/shop.module';
   imports: [
     BrowserModule,
     ShopModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

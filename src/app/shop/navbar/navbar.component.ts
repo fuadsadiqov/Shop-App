@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cart } from 'src/app/model/cart.model';
 import { RestService } from 'src/app/model/rest.service';
+import { TokenService } from 'src/app/model/token.service';
 
 @Component({
   selector: 'navbar',
@@ -14,22 +16,41 @@ export class NavbarComponent implements OnInit{
 
   currentIp: string = ""
   currentLoc: string = ""
-  constructor(public cart: Cart, private restService: RestService, private http: HttpClient){ }
+  activeSearchBar: boolean = false;
+  userData!: {email: '', username: ''};
+
+  constructor(public cart: Cart, private router: Router, private tokenService: TokenService){ }
 
   ngOnInit(){
-    this.http.get('https://api.ipify.org?format=json').subscribe((response: any) => {
-      this.currentIp = response.ip
-    });
-    this.onSubmit()
+    this.authorizedUser;
+    this.getUserData();
   }
-  onSubmit(){
-    this.restService.getIp(this.currentIp)
-      .subscribe((res: any) => {
-        this.currentLoc = res.region
-      })
-  }
+  
   toggle(){
     this.activeNavbar = !this.activeNavbar
   }
 
+  searchItems(search: string){
+    this.router.navigate(['/search'], {
+      queryParams: {
+        sr: search
+      }
+    })
+  }
+
+  toggleSearchBar(){
+    this.activeSearchBar = !this.activeSearchBar;
+  }
+
+  get authorizedUser(){
+    return this.tokenService.isAuthenticated;
+  }
+
+  getUserData(){
+    this.userData = this.tokenService.getUser();
+  }
+
+  logOut(){
+    this.tokenService.signOut();
+  }
 }

@@ -1,72 +1,109 @@
-<div *ngIf="products.length == 0" class="preloader flex items-center justify-center h-[100vh] flex-col">
-    <div class="preloader-content relative flex items-center justify-center w-[260px] h-[260px]">
-        <p class="absolute text-[#FFBF00] text-3xl top-[117px]">AGRID</p>
-        <img width="250" height="250" src="../../../assets/preload.svg" alt="">
-    </div>
+<div
+  *ngIf="products.length == 0"
+  class="preloader flex items-center justify-center h-[100vh] flex-col"
+>
+  <div
+    class="preloader-content relative flex items-center justify-center w-[260px] h-[260px]"
+  >
+    <img width="250" height="250" src="../../../assets/preload.svg" alt="" />
+  </div>
 </div>
 <div class="home" *ngIf="products.length != 0">
-<div class="home h-[650px] relative">
+  <div class="home h-[350px] relative">
     <div class="darken absolute w-full h-full bg-black opacity-30"></div>
-    <img class="w-full h-full object-cover object-top" src="../../../assets/home-banner-2.jpg" alt="">
-</div>
-<div class="product-list px-10 pt-5">
-    <h2 class="text-center text-4xl mb-2 font-bold text-black">Məhsullar</h2>
+    <img
+      class="w-full h-full object-cover object-top"
+      src="../../../assets/home-banner-2.jpg"
+      alt=""
+    />
+  </div>
+  <div class="product-list px-10 pt-5">
+    <h2 class="text-center text-4xl mb-2 font-bold text-black">
+      Yeni Məhsullar
+    </h2>
     <div class="shortcut flex justify-center mb-5">
-        <img src="../../../assets/shortcut.svg" alt="">
+      <img src="../../../assets/shortcut.svg" alt="" />
     </div>
     <product-list [products]="products"></product-list>
-</div>
-    <div class="who pt-100">
+  </div>
+  <div class="who pt-100">
     <div class="about">
-        <div class="about-wrapper">
-            <div class="about-img ">
-                <img class="big-about-img" src="../../../assets/who.png" alt="">
-            </div>
-            <div class="about-item ">
-                <div class="about-info container-fluid">
-                    <div class="about-title text-center flex flex-col items-center">Biz kimik? <br> <img class="about-shortcut" src="../../../assets/shortcut.svg" alt=""></div>
-                    <div class="about-text text-center">
-                        Əslində hər şey illər əvvəl İsmayıllı rayonunda  ailəvi gəzintidə olduğumuz zaman baş verdi. İsmayıllı rayonunun füsunkar təbiətinin gözəlliyi bizim bir gün burda kənd təsərufatı ilə məşqul olmaq arzusunu oyatdı. Daha sonra dostlarımızla bu məsələni müzakirə edərək İsmayıllıda təsəruffat qurmağa qərar verdik.
-                        Böyük uğurlar vaxtında və yerində verilən qərarlarla çox bağlıdır. <br>
-                        Elə bizdə ilk səfərdə qərar verdik və başladıq.İllər çox serətli keçdi.Bizdə böyümədə zamanın sürətindən geri qalmadıq.Qısa zaman müddətində əldə etdiyimiz uğurlar və daha sürətlə böyüməyə davam etməyimiz işimizə olan sevginin göstəricisidir. <br>
-                        Alma,armud,nektarin,gavalı,gilas və qoz yetişdirməklə qalmadıq,tingçilik və toxumçuluqla məhsul sıramızı genişləndirdik. <br>
-                        qısa zamanda ən son texnoloji yeniliklərlə damla suvarma sistemlərinin qurulması BAĞLARIN layihələndirilməsi,salınması kimi çətin işlərin ödəsindən uğurla gəldik. <br>
-                        2022 ci ildə əsas  hədəfimiz brendimizin "made in AZERBAİJAN" adına layiq ölkə kənarında rəflərdə görünməsidir. <br>
-                        növbəti hədəfləri sizlərlə paylaşmaq arzusuyla. <br><br>
-
-                        hörmətlə
-                        <br>
-                        MELADORA kollektivi
-                        <br>
-                        <div class="flex justify-center mb-3"><img class="about-shortcut" src="../../../assets/shortcut.svg" alt=""></div>
-                    </div>
-                </div>
-                <div class="flex flex-wrap justify-evenly mt-9 items-center">
-                    <div class="about-logo-item">
-                        <img src="../../../assets/organik.svg" alt="">
-                        <div class="about-logo-item-title">Organik</div>
-                    </div>
-                    <div class="about-logo-item">
-                        <img src="../../../assets/memnuniyyet.svg" alt="">
-                        <div class="about-logo-item-title">Məmnuniyyət</div>
-                    </div>
-                    <div class="about-logo-item">
-                        <img src="../../../assets/keyfiyyet.svg" alt="">
-                        <div class="about-logo-item-title">Yüksək keyfiyyət</div>
-                    </div>
-                </div>
-            </div>
+      <div class="about-wrapper">
+        <div class="about-img">
+          <img class="big-about-img" src="../../../assets/who.png" alt="" />
         </div>
+        <div class="about-item">
+          <div class="about-info container-fluid">
+            <div class="about-title text-center flex flex-col items-center">
+              Biz kimik? <br />
+              <img
+                class="about-shortcut"
+                src="../../../assets/shortcut.svg"
+                alt=""
+              />
+            </div>
+            <div class="about-text text-center">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+              illo et dolore sequi, commodi pariatur esse corrupti placeat
+              explicabo. Earum inventore facere veritatis quas dignissimos non
+              nesciunt laborum dolor quo! Lorem ipsum dolor sit amet consectetur
+              adipisicing elit. Vero enim maiores porro iusto dicta dolorem,
+              optio, ipsa dignissimos est quam perferendis nihil, numquam
+              exercitationem ex id aut blanditiis aliquid laudantium! <br>
+              Temporibus, asperiores exercitationem, cumque qui ut iste
+              cupiditate debitis dolore ipsam quod nesciunt magnam ad reiciendis
+              molestiae nam quas nostrum in aliquid, at tenetur explicabo quam!
+              Illo harum ullam quam? Necessitatibus eum nemo illo aliquam, <br>
+              explicabo, a assumenda, molestias consequatur dicta laudantium
+              consequuntur mollitia itaque architecto in aperiam! 
+              exercitationem ex id aut blanditiis aliquid laudantium! <br>
+              Temporibus, asperiores exercitationem, cumque qui ut iste
+              cupiditate debitis dolore ipsam quod nesciunt magnam ad reiciendis
+              molestiae nam quas nostrum in aliquid, at tenetur explicabo quam!
+              Illo harum ullam quam? Necessitatibus eum nemo illo aliquam, <br>
+              explicabo, a assumenda, molestias consequatur dicta laudantium
+              consequuntur mollitia itaque architecto in aperiam! 
+              <br />
+              <div class="flex justify-center mb-3">
+                <img
+                  class="about-shortcut"
+                  src="../../../assets/shortcut.svg"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap justify-evenly mt-9 items-center">
+            <div class="about-logo-item">
+              <img src="../../../assets/organik.svg" alt="" />
+              <div class="about-logo-item-title">Organik</div>
+            </div>
+            <div class="about-logo-item">
+              <img src="../../../assets/memnuniyyet.svg" alt="" />
+              <div class="about-logo-item-title">Məmnuniyyət</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-<div class="news">
-    <div class="flex flex-col items-center mb-5">
-        <h2 class="text-center text-4xl font-bold text-black">Xəbərlər</h2>
-        <img src="../../../assets/shortcut.svg" width="160" alt="">
+    <div class="product-list px-10 pt-5">
+      <h2 class="text-center text-4xl mb-2 font-bold text-black">
+        Organik Məhsullar
+      </h2>
+      <div class="shortcut flex justify-center mb-5">
+        <img src="../../../assets/shortcut.svg" alt="" />
+      </div>
+      <product-list [products]="organicProducts"></product-list>
     </div>
-    <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center">
-        <app-news-item class="mb-5" [item]="item" *ngFor="let item of newsData"></app-news-item>
-    </div>
-</div>
-<app-footer></app-footer>
+  </div>
+  <!-- <splide [options]="{ type: 'loop', perPage: 3, keyboard: false }">
+    <splide-slide>
+        Test
+        <img src="../../../assets/367445.jpg" alt="" />
+    </splide-slide>
+    <splide-slide>
+        Test 2
+        <img src="../../../assets/bal.jpg" alt="" />
+    </splide-slide>
+</splide> -->
 </div>
