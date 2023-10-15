@@ -31,7 +31,6 @@ export class ProductFormComponent {
 
   save(form: NgForm){
     this.repository.saveProduct(this.product)
-    console.log(this.repository.saveProduct(this.product));
     
     this.router.navigateByUrl('/admin/main/products')
   } 

@@ -4,6 +4,7 @@ import { Product } from 'src/app/model/product.model';
 import { RestService } from 'src/app/model/rest.service';
 import { ProductRepository } from 'src/app/model/product.repository';
 import { PostService } from 'src/app/model/post.service';
+import { TokenService } from 'src/app/model/token.service';
 
 @Component({
   selector: 'app-item-detail-view',
@@ -12,13 +13,18 @@ import { PostService } from 'src/app/model/post.service';
 })
 export class ItemDetailViewComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute, private restService: RestService, private productRepository: ProductRepository, private postService: PostService){}
+  constructor(private route: ActivatedRoute, private restService: RestService, private tokenService: TokenService, private postService: PostService){}
   
   public product: Product | undefined;
   public lastThreeProducts: Product[] = [];
 
   ngOnInit(): void {
     this.getItemDetail();
+    this.isAuthenticated;
+  }
+
+  get isAuthenticated(): boolean{
+    return this.tokenService.isAuthenticated;
   }
   getItemDetail(){
     this.route.params.subscribe(param => {

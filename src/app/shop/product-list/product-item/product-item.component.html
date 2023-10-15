@@ -1,0 +1,13 @@
+<div class="card hover:scale-[1.03] flex justify-center items-center flex-col shadow-xl rounded-lg relative bg-white pb-3 mb-5" >
+    <div class="w-full relative">
+        <img class="rounded-xl w-full h-52 object-contain py-1" src="{{item.imageUrl}}" alt="{{item.name}}">
+    </div>
+    <div class="card-body px-3">
+        <h4 class="card-title text-center pt-3">
+            <a [routerLink]="'/item/' + item.id" class="text-xl font-semibold">{{item.name || item.title}}</a>
+        </h4>   
+        <p class="text-center text-xl">
+            {{item.price | currency: '₼'}}
+        </p>
+    </div>
+</div>

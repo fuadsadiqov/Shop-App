@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { newsdata } from 'newsData';
+import { EventHandlerPayload } from '@livechat/widget-angular';
 import { NewsInterface } from 'src/app/model/news.interface';
 import { PostService } from 'src/app/model/post.service';
 import { Product } from 'src/app/model/product.model';
@@ -17,8 +17,6 @@ export class HomeComponent implements OnInit{
   public products: Product[] = []
   public organicProducts: Product[] = []
 
-  public newsData: NewsInterface[] = newsdata.slice(0, 4)
-
   constructor(
     private productRepository: ProductRepository,
     private postService: PostService
@@ -27,15 +25,13 @@ export class HomeComponent implements OnInit{
     this.postService.getPosts()
     .subscribe((res: Product[] | any) => {
       this.organicProducts = res.slice(res.length - 3)
-      console.log(this.organicProducts);
-      
     });
   }
   
   ngOnInit(): void { 
     this.getProducts();
     this.getOrganicProducts();
-  }
+   }
 
   getProducts(){
     this.postService.getPosts()

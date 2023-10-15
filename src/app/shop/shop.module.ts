@@ -18,6 +18,8 @@ import { NgxSplideModule } from 'ngx-splide';
 import { SearchViewComponent } from './search-view/search-view.component';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { ProductItemComponent } from './product-list/product-item/product-item.component';
+import { LiveChatWidgetModule } from "@livechat/widget-angular";
 
 @NgModule({
     imports: [
@@ -29,6 +31,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
         ShopRoutingModule,
         NgxSplideModule,
         ReactiveFormsModule,
+        LiveChatWidgetModule
     ],
     declarations: [
         ShopComponent, 
@@ -43,7 +46,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
         AddNewItemComponent, 
         SearchViewComponent, 
         RegisterPageComponent, 
-        LoginPageComponent,
+        LoginPageComponent, ProductItemComponent,
     ],
     exports: [ShopComponent]
 })

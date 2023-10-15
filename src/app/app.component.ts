@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { initFlowbite } from 'flowbite'
+import { EventHandlerPayload } from "@livechat/widget-angular";
 
 interface Item {
   name: string,

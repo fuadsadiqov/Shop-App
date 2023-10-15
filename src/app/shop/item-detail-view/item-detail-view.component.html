@@ -9,10 +9,10 @@
             <p>Detallı məlumat: {{ product.description || product.content }}</p>
             <div class="flex flex-col gap-1">
                 <p>Fermerin adı: Rafiq Rüstəmov</p>
-                <div class="flex">
-                    <img class="w-7" src="../../../assets/phone.svg" alt="">
-                    <!-- <img class="w-7" src="../../../assets/whatsapp.svg" alt=""> -->
-                    +994 XX XXX XX XX
+                <div class="flex pt-2 gap-2">
+                    <img class="w-6" src="../../../assets/phone.svg" alt="">
+                    <span *ngIf="isAuthenticated"> +994-99-999-99-99</span>
+                    <span *ngIf="!isAuthenticated">Telefon nömrəsini görmək üçün qeydiyyatdan keçin</span>
                 </div>
             </div>
             <p class="flex items-center gap-2"><img class="w-8" src="../../../assets/location.svg" alt=""> <a target="_blank" href="https://www.google.com/maps?q={{product.address}}">{{ product.address }}</a></p>

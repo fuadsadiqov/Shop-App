@@ -10,7 +10,7 @@ import { PostService } from 'src/app/model/post.service';
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent {
-  constructor(private fb: FormBuilder, private authService: AuthService, private postService: PostService){}
+  constructor(private fb: FormBuilder, private postService: PostService){}
  
   public isSuccessfull: boolean = false;
   public isSignupFailed: boolean = false;
@@ -37,7 +37,6 @@ export class RegisterPageComponent {
           }
           this.postService.register(userObj)
           .subscribe(response => {
-            console.log(response);
             this.isSuccessfull = true;
             this.isSignupFailed = false;
             setTimeout(() => {
@@ -51,10 +50,11 @@ export class RegisterPageComponent {
       }
       else{
         this.isSignupFailed = true;
-          this.errorMessage = "Passwords don't match";
+          this.errorMessage = "Şifrələr eyni deyil";
       }
     }else{
       this.isSignupFailed = true;
+      this.errorMessage = "Xahiş olunur qeydiyyatı tamamlayın";
     }
   }
 }
